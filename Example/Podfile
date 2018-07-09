@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ImagesPicker_Example' do
+  pod 'ImagesPicker', :path => '../'
+
+  target 'ImagesPicker_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
