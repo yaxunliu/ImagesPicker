@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1ff7ab46-021b-459d-8cfb-a6c061b8a812" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/AlbumCell.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/AlbumCell.xib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/AlbumListController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/ImageManger.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/ImagePickerController.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/NavBarView.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/PickImageCell.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/PickImageCell.xib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/ic_back.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/ic_back.imageset/ic_back@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/ic_back.imageset/ic_back@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_black.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_black.imageset/img_black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_black.imageset/img_black@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_black.imageset/img_black@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_blue.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_blue.imageset/img_blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_blue.imageset/img_blue@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_blue.imageset/img_blue@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/moreinfo.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/moreinfo.imageset/moreinfo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/moreinfo.imageset/moreinfo@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/moreinfo.imageset/moreinfo@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example/ImagesPicker.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Example/ImagesPicker.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example/ImagesPicker/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Example/ImagesPicker/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example/ImagesPicker/ViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Example/ImagesPicker/ViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Example/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example/Tests/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Example/Tests/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ImagesPicker.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/ImagesPicker.podspec" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_979c318f300c8184190295a3c7a5d68548c2694a" />
+  <component name="FavoritesManager">
+    <favorites_list name="_Pods" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="ImagePickerController.swift" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Example/ImagesPicker/Classes/ImagePickerController.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="485">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
+              <folding>
+                <element signature="e#156#168#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Example/ImagesPicker/Classes/ImageListController.swift" />
+        <option value="$PROJECT_DIR$/Example/ImagesPicker/Classes/ImagePickerController.swift" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="114" />
+    <option name="y" value="97" />
+    <option name="width" value="1636" />
+    <option name="height" value="933" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <showMembers ProjectPane="true" />
+      <autoscrollToSource ProjectPane="false" />
+      <manualOrder ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Cidr.FilesView" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Alamofire" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="_Pods" TARGET_NAME="Alamofire" CONFIG_NAME="Debug" SCHEME_NAME="Alamofire" IS_LOCATION_SIMULATION_ALLOWED="true" MAKE_ACTIVE="TRUE">
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1ff7ab46-021b-459d-8cfb-a6c061b8a812" name="Default" comment="" />
+      <created>1531132624492</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1531132624492</updated>
+      <workItem from="1531132626207" duration="189000" />
+      <workItem from="1531149434297" duration="195000" />
+      <workItem from="1531191906584" duration="55000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="439000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="114" y="97" width="1636" height="933" extended-state="0" />
+    <layout>
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4952153" visible="true" weight="0.17275542" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32948717" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="Structure" order="1" sideWeight="0.5047847" side_tool="true" visible="true" weight="0.17275542" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Favorites" order="2" sideWeight="0.50128204" side_tool="true" weight="0.21353066" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Example/ImagesPicker/Classes/ImagePickerController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#156#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Example/ImagesPicker/Classes/ImageListController.swift" />
+    <entry file="file://$PROJECT_DIR$/Example/ImagesPicker/Classes/ImageListController.swift" />
+    <entry file="file://$PROJECT_DIR$/Example/ImagesPicker/Classes/ImagePickerController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="e#156#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
