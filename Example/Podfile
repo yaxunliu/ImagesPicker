@@ -1,7 +1,15 @@
 use_frameworks!
+# 惠选股源
+source 'https://gitee.com/weicaixun/hxgSpecRepo.git'
+
+# 官方源
+source 'https://github.com/CocoaPods/Specs.git'
 
 target 'ImagesPicker_Example' do
   pod 'ImagesPicker', :path => '../'
+  pod 'SnapKit', '~> 4.0.0'
+  pod 'BaseLib', '~> 0.0.6'
+  pod 'RxDataSources', '~> 3.0.2'
 
   target 'ImagesPicker_Tests' do
     inherit! :search_paths
