@@ -12,7 +12,6 @@ import RxCocoa
 import Photos
 import RxDataSources
 
-
 //相簿列表项
 public struct AlbumItem {
     //相簿名称
