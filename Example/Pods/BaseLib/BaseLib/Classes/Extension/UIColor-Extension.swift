@@ -51,5 +51,12 @@ public extension UIColor {
         return NSColor(calibratedRed: red, green: green, blue: blue, alpha: alpha)
         #endif
     }
+    
+    class func randomColor() -> UIColor {
+        let r = CGFloat(arc4random_uniform(255))
+        let g = CGFloat(arc4random_uniform(255))
+        let b = CGFloat(arc4random_uniform(255))
+        return UIColor.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: 1)
+    }
 }
 

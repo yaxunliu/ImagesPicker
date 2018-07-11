@@ -18,7 +18,11 @@ class ViewController: UIViewController {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        present(UINavigationController.init(rootViewController: AlbumListController()), animated: true, completion: nil)
+        let vc = AlbumListController { (models) in
+            print("select models -> ", models.count)
+        }
+        present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
+        
     }
     
 

@@ -15,6 +15,7 @@ class AlbumCell: UITableViewCell {
     @IBOutlet weak var albumTitleLabel: UILabel!
     @IBOutlet weak var albumCountLabel: UILabel!
     
+    @IBOutlet weak var moreImageView: UIImageView!
     var album: AlbumItem? {
         didSet {
             self.albumTitleLabel.text = album?.title
@@ -37,6 +38,11 @@ class AlbumCell: UITableViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+
+    }
     
     
 }

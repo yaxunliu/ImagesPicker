@@ -10,11 +10,11 @@ import UIKit
 import Moya
 
 public class BaseNetworkConfig {
-    private static let shareConfig = BaseNetworkConfig()
-    var baseUrl: String?
-    var header: [String : String]?
-    class func config() -> BaseNetworkConfig {
-        return shareConfig
+    private static let _shareConfig = BaseNetworkConfig()
+    public var baseUrl: String?
+    public var header: [String : String]?
+    public class func config() -> BaseNetworkConfig {
+        return _shareConfig
     }
 }
 

@@ -12,7 +12,8 @@ import RxDataSources
 
 
 public struct ImagePickerModel {
-    let asset: PHAsset
+    let asset: PHAsset    // 图片资源文件
+    let identify: String  // 标识符
 }
 
 

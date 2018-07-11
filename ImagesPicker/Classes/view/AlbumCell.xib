@@ -37,8 +37,11 @@
                         <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moreinfo" translatesAutoresizingMaskIntoConstraints="NO" id="yKm-p0-MAS">
-                        <rect key="frame" x="298" y="14" width="11" height="19"/>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moreinfo" translatesAutoresizingMaskIntoConstraints="NO" id="yKm-p0-MAS">
+                        <rect key="frame" x="278" y="0.0" width="46" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="yKm-p0-MAS" secondAttribute="height" multiplier="46:46" id="CbV-yN-987"/>
+                        </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQt-Vl-2yH">
                         <rect key="frame" x="46.5" y="46" width="277.5" height="1"/>
@@ -52,14 +55,15 @@
                     <constraint firstItem="SDb-w4-CrI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2Uv-bN-RHV"/>
                     <constraint firstItem="SDb-w4-CrI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6oX-7a-gsS"/>
                     <constraint firstAttribute="bottom" secondItem="SDb-w4-CrI" secondAttribute="bottom" id="8jG-h2-RkN"/>
+                    <constraint firstAttribute="trailing" secondItem="yKm-p0-MAS" secondAttribute="trailing" id="MPv-Pv-brd"/>
+                    <constraint firstItem="yKm-p0-MAS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MYA-EB-7dT"/>
                     <constraint firstAttribute="bottom" secondItem="QQt-Vl-2yH" secondAttribute="bottom" id="OOC-bZ-scG"/>
                     <constraint firstItem="pRn-ya-Wus" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QNi-Rh-bCV"/>
                     <constraint firstItem="QQt-Vl-2yH" firstAttribute="leading" secondItem="SDb-w4-CrI" secondAttribute="trailing" id="WIz-42-cqU"/>
                     <constraint firstItem="Sk6-S4-FuJ" firstAttribute="leading" secondItem="pRn-ya-Wus" secondAttribute="trailing" constant="15" id="YJF-uq-lRC"/>
                     <constraint firstItem="pRn-ya-Wus" firstAttribute="leading" secondItem="SDb-w4-CrI" secondAttribute="trailing" constant="10" id="Zmn-sJ-kDs"/>
-                    <constraint firstItem="yKm-p0-MAS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eDv-eL-F7i"/>
+                    <constraint firstItem="QQt-Vl-2yH" firstAttribute="top" secondItem="yKm-p0-MAS" secondAttribute="bottom" id="m8J-ea-niH"/>
                     <constraint firstItem="Sk6-S4-FuJ" firstAttribute="centerY" secondItem="pRn-ya-Wus" secondAttribute="centerY" id="o54-tp-jDF"/>
-                    <constraint firstAttribute="trailing" secondItem="yKm-p0-MAS" secondAttribute="trailing" constant="15" id="vVb-Hd-7A6"/>
                     <constraint firstAttribute="trailing" secondItem="QQt-Vl-2yH" secondAttribute="trailing" id="wn7-yf-VJr"/>
                 </constraints>
             </tableViewCellContentView>
@@ -67,6 +71,7 @@
                 <outlet property="albumCountLabel" destination="Sk6-S4-FuJ" id="l3x-ZF-XLb"/>
                 <outlet property="albumImageView" destination="SDb-w4-CrI" id="ylE-Ib-FRS"/>
                 <outlet property="albumTitleLabel" destination="pRn-ya-Wus" id="BUd-rS-XAS"/>
+                <outlet property="moreImageView" destination="yKm-p0-MAS" id="daO-vL-HeR"/>
             </connections>
             <point key="canvasLocation" x="36" y="55.5"/>
         </tableViewCell>

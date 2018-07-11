@@ -22,25 +22,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="161" height="147"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACw-pS-6FE">
-                        <rect key="frame" x="136" y="5" width="20" height="22"/>
-                        <state key="normal" image="img_black"/>
+                        <rect key="frame" x="116" y="5" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Ndb-6y-9UT"/>
+                            <constraint firstAttribute="width" constant="40" id="Uqj-2E-N6G"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" backgroundImage="img_black"/>
+                        <state key="selected" backgroundImage="img_blue"/>
                     </button>
-                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RX2-bx-u3Z">
-                        <rect key="frame" x="0.0" y="0.0" width="161" height="147"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="uiD-1D-fiV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8cM-Je-bOb"/>
                 <constraint firstItem="uiD-1D-fiV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="BkD-5V-nsV"/>
                 <constraint firstAttribute="trailing" secondItem="uiD-1D-fiV" secondAttribute="trailing" id="COS-N1-7wB"/>
-                <constraint firstItem="RX2-bx-u3Z" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Dec-mX-I7B"/>
-                <constraint firstItem="RX2-bx-u3Z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Kgb-uu-fgM"/>
-                <constraint firstAttribute="trailing" secondItem="RX2-bx-u3Z" secondAttribute="trailing" id="Z0G-Sh-3LL"/>
                 <constraint firstAttribute="bottom" secondItem="uiD-1D-fiV" secondAttribute="bottom" id="d4K-W7-OB2"/>
                 <constraint firstItem="ACw-pS-6FE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="d72-oU-gDV"/>
-                <constraint firstAttribute="bottom" secondItem="RX2-bx-u3Z" secondAttribute="bottom" id="lRM-5d-cR0"/>
                 <constraint firstAttribute="trailing" secondItem="ACw-pS-6FE" secondAttribute="trailing" constant="5" id="vRI-vh-aJO"/>
             </constraints>
             <size key="customSize" width="161" height="147"/>
@@ -53,5 +51,6 @@
     </objects>
     <resources>
         <image name="img_black" width="20" height="20"/>
+        <image name="img_blue" width="20" height="20"/>
     </resources>
 </document>

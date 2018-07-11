@@ -24,6 +24,7 @@ public struct AlbumItem {
         self.title = title
         self.fetchResult = fetchResult
     }
+
 }
 
 public struct AlbumSection {
@@ -37,7 +38,6 @@ extension AlbumSection: SectionModelType {
         albums = items
     }
     
-    
     public typealias Item = AlbumItem
     public typealias Identity = String
     public var items: [Item] {
@@ -48,12 +48,10 @@ extension AlbumSection: SectionModelType {
 }
 
 
-
 class AlbumListController: UIViewController {
     let bag = DisposeBag()
     var isPush: Bool = true
     var albums: BehaviorRelay<[AlbumSection]> = BehaviorRelay.init(value: [])
-    
     
     var tableView: UITableView?
     
@@ -65,6 +63,17 @@ class AlbumListController: UIViewController {
         return nav
     }()
     
+    var _selectImages: ([ImagePickerModel]) -> ()?
+    
+    
+    init(selectImages: @escaping ([ImagePickerModel]) -> () ) {
+        _selectImages = selectImages
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     override func viewDidLoad() {
@@ -74,6 +83,9 @@ class AlbumListController: UIViewController {
         observer()
     }
     
+    deinit {
+        print("11")
+    }
     
     func setupUI() {
         view.addSubview(navBar)
@@ -88,15 +100,14 @@ class AlbumListController: UIViewController {
         })
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
+    
+    
 
 }
 extension AlbumListController {
     
     func observer() {
-     
         self.navBar.rightButton.rx.controlEvent([.touchUpInside]).subscribe { [unowned self] _ in
             self.navigationController?.dismiss(animated: true, completion: nil)
         }.disposed(by: bag)
@@ -119,7 +130,11 @@ extension AlbumListController {
                 let items = sysAblums + cusAblums
                 self.albums.accept([AlbumSection.init(header: "ablum", albums: items)])
                 
-                let imgPicker = ImagePickerController()
+                let imgPicker = ImagePickerController(selectImages: { [unowned self] (models) in
+                    self._selectImages(models)
+                    self.navigationController?.dismiss(animated: true, completion: nil)
+                })
+                
                 imgPicker.album = items[0]
                 
                 if self.isPush {
@@ -138,7 +153,11 @@ extension AlbumListController {
         tableView?.rx.itemSelected.subscribe { [unowned self] (event) in
             guard let index = event.element else { return }
             let album = self.albums.value[0].albums[index.row]
-            let imagePicker = ImagePickerController()
+            let imagePicker = ImagePickerController(selectImages: { [unowned self] (models) in
+                self._selectImages(models)
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            })
+            
             imagePicker.album = album
             self.navigationController?.pushViewController(imagePicker , animated: true)
             self.tableView?.deselectRow(at: index, animated: true)
@@ -152,7 +171,6 @@ extension AlbumListController {
 }
 
 extension AlbumListController {
-    
     private func convertCollection(collection:PHFetchResult<PHAssetCollection>) -> [AlbumItem] {
         var items:[AlbumItem] = []
         for i in 0..<collection.count{

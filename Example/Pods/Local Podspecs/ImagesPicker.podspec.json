@@ -1,8 +1,8 @@
 {
   "name": "ImagesPicker",
   "version": "0.1.0",
-  "summary": "A short description of ImagesPicker.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "图片选择器",
+  "description": "用来进行图片选择，和拍摄照片选择",
   "homepage": "https://github.com/liuyaxun/ImagesPicker",
   "license": {
     "type": "MIT",
@@ -16,7 +16,12 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "ImagesPicker/Classes/**/*"
+  "source_files": "ImagesPicker/Classes/**/*",
+  "dependencies": {
+    "BaseLib": [
+      "~> 0.0.7"
+    ]
+  }
 }
