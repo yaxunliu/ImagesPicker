@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'yaxunliu' => '1175222300@qq.com' }
-  s.source           = { :git => 'https://github.com/yaxunliu/ImagesPicker.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@github.com:yaxunliu/ImagesPicker.git', :tag => s.version.to_s }
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'ImagesPicker/Classes/**/*'
