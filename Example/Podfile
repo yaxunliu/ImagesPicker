@@ -1,8 +1,7 @@
-use_frameworks!
-# 惠选股源
-source 'https://gitee.com/weicaixun/hxgSpecRepo.git'
+platform :ios, '9.0'
 
-# 官方源
+use_frameworks!
+source 'https://gitee.com/weicaixun/hxgSpecRepo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'ImagesPicker_Example' do
