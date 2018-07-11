@@ -26,4 +26,4 @@ liuyaxun, 1175222300@qq.com
 
 ## License
 
-ImagesPicker is available under the MIT license. See the LICENSE file for more info.
+图片选择
