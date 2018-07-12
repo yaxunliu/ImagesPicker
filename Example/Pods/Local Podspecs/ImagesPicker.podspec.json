@@ -1,14 +1,8 @@
 {
   "name": "ImagesPicker",
-<<<<<<< HEAD
   "version": "0.0.4",
   "summary": "图片选择器",
   "description": "iPhone photos picker",
-=======
-  "version": "0.0.3",
-  "summary": "图片选择器",
-  "description": "用来进行图片选择，和拍摄照片选择",
->>>>>>> b338361303eebf60e458385ce712b9239db883ff
   "homepage": "https://github.com/yaxunliu/ImagesPicker",
   "license": {
     "type": "MIT",
@@ -19,11 +13,7 @@
   },
   "source": {
     "git": "git@github.com:yaxunliu/ImagesPicker.git",
-<<<<<<< HEAD
     "tag": "0.0.4"
-=======
-    "tag": "0.0.3"
->>>>>>> b338361303eebf60e458385ce712b9239db883ff
   },
   "platforms": {
     "ios": "9.0"
@@ -36,11 +26,7 @@
   },
   "dependencies": {
     "BaseLib": [
-<<<<<<< HEAD
       "~> 0.1.0"
-=======
-      "~> 0.0.7"
->>>>>>> b338361303eebf60e458385ce712b9239db883ff
     ],
     "RxDataSources": [
       "~> 3.0.2"
