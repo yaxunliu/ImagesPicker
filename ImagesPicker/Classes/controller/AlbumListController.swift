@@ -12,7 +12,6 @@ import RxCocoa
 import Photos
 import RxDataSources
 
-
 //相簿列表项
 public struct AlbumItem {
     //相簿名称
@@ -48,7 +47,7 @@ extension AlbumSection: SectionModelType {
 }
 
 
-class AlbumListController: UIViewController {
+public class AlbumListController: UIViewController {
     let bag = DisposeBag()
     var isPush: Bool = true
     var albums: BehaviorRelay<[AlbumSection]> = BehaviorRelay.init(value: [])
@@ -66,25 +65,21 @@ class AlbumListController: UIViewController {
     var _selectImages: ([ImagePickerModel]) -> ()?
     
     
-    init(selectImages: @escaping ([ImagePickerModel]) -> () ) {
+    public init(selectImages: @escaping ([ImagePickerModel]) -> () ) {
         _selectImages = selectImages
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         self.loadPhotoAlbums()
         observer()
-    }
-    
-    deinit {
-        print("11")
     }
     
     func setupUI() {
@@ -100,7 +95,10 @@ class AlbumListController: UIViewController {
         })
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
     
     
 
@@ -126,7 +124,7 @@ extension AlbumListController {
             let userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
             let cusAblums = self.convertCollection(collection: userCollections as! PHFetchResult<PHAssetCollection>)
             //异步加载表格数据,需要在主线程中调用reloadData() 方法
-            DispatchQueue.main.async{
+            DispatchQueue.main.async { [unowned self] in 
                 let items = sysAblums + cusAblums
                 self.albums.accept([AlbumSection.init(header: "ablum", albums: items)])
                 
@@ -157,9 +155,9 @@ extension AlbumListController {
                 self._selectImages(models)
                 self.navigationController?.dismiss(animated: true, completion: nil)
             })
-            
             imagePicker.album = album
             self.navigationController?.pushViewController(imagePicker , animated: true)
+
             self.tableView?.deselectRow(at: index, animated: true)
         }.disposed(by: bag)
         

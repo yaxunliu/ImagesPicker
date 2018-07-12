@@ -17,12 +17,12 @@ public struct ImagePickerModel {
 }
 
 
-public struct ImagepPickerSectionModel {
+public struct ImagePickerSectionModel {
     var header: String
     var images: [ImagePickerModel]
 }
 
-extension ImagepPickerSectionModel: SectionModelType {
+extension ImagePickerSectionModel: SectionModelType {
     
     public typealias Item = ImagePickerModel
     public typealias Identity = String
@@ -32,7 +32,7 @@ extension ImagepPickerSectionModel: SectionModelType {
     
     public var identity: String { return header }
     
-    public init(original: ImagepPickerSectionModel, items: [Item]) {
+    public init(original: ImagePickerSectionModel, items: [Item]) {
         self = original
         images = items
     }

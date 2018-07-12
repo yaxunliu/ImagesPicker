@@ -43,7 +43,7 @@ class ImagePickerController: UIViewController {
     private var _previousPreheatRect: CGRect = .zero
     let column: CGFloat = 4
     var album: AlbumItem?
-    var albumSection: BehaviorRelay<[ImagepPickerSectionModel]> = BehaviorRelay.init(value: [])
+    var albumSection: BehaviorRelay<[ImagePickerSectionModel]> = BehaviorRelay.init(value: [])
     /// 减少/增加 选择的图片
     var oprationAction: BehaviorSubject<(isAddAction: Bool?, imageModel: ImagePickerModel?)?> = BehaviorSubject(value: nil)
     var selectImages: BehaviorRelay<[ImagePickerModel]> = BehaviorRelay(value: [])
@@ -76,7 +76,7 @@ class ImagePickerController: UIViewController {
         // 4.监听UI
         observer()
     }
-    
+
 }
 
 extension ImagePickerController {
@@ -109,7 +109,9 @@ extension ImagePickerController {
     
     // 2.绑定数据源
     func bindDataSource() {
-        let dataSource = RxCollectionViewSectionedReloadDataSource<ImagepPickerSectionModel>.init(configureCell: { [unowned self] (ds, collection, index, model) -> UICollectionViewCell in
+        let dataSource = RxCollectionViewSectionedReloadDataSource<ImagePickerSectionModel>.init(configureCell: { [weak self] (ds, collection, index, model) -> UICollectionViewCell in
+            guard let `self` = self else { return UICollectionViewCell() }
+            
             let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "PickImageCell", for: index) as! PickImageCell
             cell.model = model
             self._imageCacheManger.requestImage(for: model.asset, targetSize: self._itemSize, contentMode: .aspectFill, options: nil, resultHandler: { (image, info) in
@@ -120,26 +122,29 @@ extension ImagePickerController {
             self.selectImages
                 .bind(to: cell.obserSelectModels)
                 .disposed(by: cell.bag!)
+
             cell.pickButton.rx
                 .controlEvent([.touchUpInside])
-                .map{ cell.status == .unenable }
-                .map{ $0 ? nil : (cell.status == .unselect ? true : false) }
-                .map{ (isAddAction: $0, imageModel: cell.model) }
-                .bind(to: self.oprationAction)
-                .disposed(by: cell.bag!)
+                .map({ [weak cell] () -> Bool? in
+                    if cell?.status == .unenable { return nil }
+                    return cell?.status == .unselect ? true : false
+                }).map{ [weak cell] add in
+                   return (isAddAction: add, imageModel: cell?.model)
+                }.bind(to: self.oprationAction).disposed(by: cell.bag!)
             return cell
         })
         albumSection
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: bag)
         
-        collectionView.rx.didScroll.asObservable().subscribe { [unowned self] _ in
-            self.updateCacheAsset()
+        collectionView.rx.didScroll.asObservable().subscribe { [weak self] _ in
+            self?.updateCacheAsset()
             }.disposed(by: bag)
         
-        collectionView.performBatchUpdates(nil, completion: { [unowned self] _ in
-            if self.collectionView.contentSize.height > self.collectionView.bounds.height {
-                self.collectionView.setContentOffset(CGPoint(x: 0, y: self.collectionView.contentSize.height - self.collectionView.bounds.height), animated: false)
+        collectionView.performBatchUpdates(nil, completion: { [weak self] _ in
+            guard let `self` = self else { return }
+            if `self`.collectionView.contentSize.height > `self`.collectionView.bounds.height {
+                `self`.collectionView.setContentOffset(CGPoint(x: 0, y: `self`.collectionView.contentSize.height - `self`.collectionView.bounds.height), animated: false)
             }
         })
     }
@@ -153,7 +158,7 @@ extension ImagePickerController {
             models.append(model)
         }
         models.reverse()
-        self.albumSection.accept([ImagepPickerSectionModel.init(header: "imagePicker", images: models)])
+        self.albumSection.accept([ImagePickerSectionModel.init(header: "imagePicker", images: models)])
         self.accessView.numLabel.text = "共\(models.count)张照片"
     }
     
@@ -174,40 +179,46 @@ extension ImagePickerController {
     }
     
     func observerPreview() {
-        self.accessView.previewButton.rx.controlEvent([.touchUpInside]).subscribe { [unowned self] _ in
-            let preVc = ImagePreviewController(previewAssets: self.selectImages.value, begin: 0, selected: self.selectImages.value) { [unowned self] (models, status) in
-                self.selectImages.accept(models)
+        self.accessView.previewButton.rx.controlEvent([.touchUpInside]).subscribe { [weak self] _ in
+            guard let `self` = self else { return }
+            let preVc = ImagePreviewController(previewAssets: `self`.selectImages.value, begin: 0, selected: `self`.selectImages.value) { (models, status) in
+                `self`.selectImages.accept(models)
                 if status == .dismiss {
-                    self.selectImageBlock(self.selectImages.value)
+                    `self`.selectImageBlock(`self`.selectImages.value)
                 }
             }
-            self.navigationController?.pushViewController(preVc , animated: true)
+            `self`.navigationController?.pushViewController(preVc , animated: true)
         }.disposed(by: bag)
         
-        self.collectionView.rx.itemSelected.asObservable().subscribe { [unowned self] event in
+        self.collectionView.rx.itemSelected.asObservable().subscribe { [weak self] event in
+            guard let `self` = self else { return }
+            
             guard let index = event.element else { return }
-            let preVc = ImagePreviewController(previewAssets: self.albumSection.value[0].images, begin: index.row, selected: self.selectImages.value) { [unowned self] (models, status) in
-                self.selectImages.accept(models)
+            let preVc = ImagePreviewController(previewAssets: `self`.albumSection.value[0].images, begin: index.row, selected: `self`.selectImages.value) { (models, status) in
+                `self`.selectImages.accept(models)
                 if status == .dismiss {
-                    self.selectImageBlock(self.selectImages.value)
+                    `self`.selectImageBlock(`self`.selectImages.value)
                 }
             }
-            self.navigationController?.pushViewController(preVc , animated: true)
+            `self`.navigationController?.pushViewController(preVc , animated: true)
         }.disposed(by: bag)
         
     }
     
     func observeEnd() {
-        self.accessView.ensureButton.rx.controlEvent([.touchUpInside]).subscribe { [unowned self] _ in
-            self.selectImageBlock(self.selectImages.value)
+        self.accessView.ensureButton.rx.controlEvent([.touchUpInside]).subscribe { [weak self] _ in
+            guard let `self` = self else { return }
+            `self`.selectImageBlock(`self`.selectImages.value)
         }.disposed(by: bag)
         
-        navBar.rightButton.rx.controlEvent([.touchUpInside]).subscribe { [unowned self] _ in
-            self.navigationController?.dismiss(animated: true, completion: nil)
+        navBar.rightButton.rx.controlEvent([.touchUpInside]).subscribe { [weak self] _ in
+            guard let `self` = self else { return }
+            `self`.navigationController?.dismiss(animated: true, completion: nil)
         }.disposed(by: bag)
         
-        navBar.backButton.rx.controlEvent([.touchUpInside]).subscribe { [unowned self] _ in
-            self.navigationController?.popViewController(animated: true)
+        navBar.backButton.rx.controlEvent([.touchUpInside]).subscribe { [weak self] _ in
+            guard let `self` = self else { return }
+            `self`.navigationController?.popViewController(animated: true)
         }.disposed(by: bag)
     }
     
@@ -223,28 +234,27 @@ extension ImagePickerController {
         self.selectImages.asDriver()
             .map{ $0.count > 0}
             .asObservable()
-            .subscribe({ [unowned self] (event) in
+            .subscribe({ [weak self] (event) in
                 guard let enable = event.element else { return }
-                self.accessView.ensureButton.isEnabled = enable
+                self?.accessView.ensureButton.isEnabled = enable
                 let color = !enable ? UIColor.getColor(hex: "b1b1b1") : UIColor.getColor(hex: "047fd5")
-                self.accessView.ensureButton.backgroundColor = color
-                self.accessView.previewButton.isEnabled = enable
+                self?.accessView.ensureButton.backgroundColor = color
+                self?.accessView.previewButton.isEnabled = enable
         }).disposed(by: bag)
     }
     
     // 2.添加或者移除图片
     func observerRemoveOrAdd() {
         // 添加选中图片和删除选中图片
-        oprationAction.subscribe { [unowned self] (event) in
+        oprationAction.subscribe { [weak self] (event) in
             let ele = event.element ?? nil
             let addAction = ele?.isAddAction
+            guard let operation = ele else { return }
             if addAction == nil { // 不能添加
-                // TODO: 需要添加弹框提示 提示用户不能添加超过9张图片
-                print("不能添加！！！！")
+                self?.show(nil, content: "你最多只能选择9张图片", cancel: "知道了")
                 return
             }
-            guard let operation = ele else { return }
-            var images = self.selectImages.value
+            guard var images = self?.selectImages.value else { return }
             if operation.isAddAction! { // 添加
                 if images.count <= 9 { images.append(operation.imageModel!) }
             } else { // 删除
@@ -253,7 +263,7 @@ extension ImagePickerController {
                     images.remove(at: index)
                 }
             }
-            self.selectImages.accept(images)
+            self?.selectImages.accept(images)
         }.disposed(by: bag)
     }
 }
@@ -276,10 +286,10 @@ extension ImagePickerController {
         let del = fabs(preheatRect.midY - _previousPreheatRect.midY)
         if del > self.view.bounds.height / 3 {
             // 计算开始缓存和停止缓存的区域
-            self.caculateDifference(oldRect: _previousPreheatRect, newRect: preheatRect, removeHanle: { [unowned self] (remove) in
-                self.stopCacheImage(remove)
-            }) { [unowned self] (add) in
-                self.startCacheImage(add)
+            self.caculateDifference(oldRect: _previousPreheatRect, newRect: preheatRect, removeHanle: { [weak self] (remove) in
+                self?.stopCacheImage(remove)
+            }) { [weak self] (add) in
+                self?.startCacheImage(add)
             }
             _previousPreheatRect = preheatRect
         }

@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" rowHeight="47" id="KGk-i7-Jjw" customClass="AlbumCell" customModule="ImagesPicker_Example" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" rowHeight="47" id="KGk-i7-Jjw" customClass="AlbumCell" customModule="ImagesPicker" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="324" height="47"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -37,7 +37,7 @@
                         <color key="textColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moreinfo" translatesAutoresizingMaskIntoConstraints="NO" id="yKm-p0-MAS">
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yKm-p0-MAS">
                         <rect key="frame" x="278" y="0.0" width="46" height="46"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="yKm-p0-MAS" secondAttribute="height" multiplier="46:46" id="CbV-yN-987"/>
@@ -76,7 +76,4 @@
             <point key="canvasLocation" x="36" y="55.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="moreinfo" width="11" height="19"/>
-    </resources>
 </document>

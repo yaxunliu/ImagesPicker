@@ -7,24 +7,23 @@
 //
 
 import UIKit
-
+import ImagesPicker
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .red
         
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let vc = AlbumListController { (models) in
-            print("select models -> ", models.count)
+            
         }
         present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
-        
+
     }
-    
 
 }
 

@@ -1,14 +1,13 @@
-use_frameworks!
-# 惠选股源
-source 'https://gitee.com/weicaixun/hxgSpecRepo.git'
+platform :ios, '9.0'
 
-# 官方源
+use_frameworks!
+source 'https://gitee.com/weicaixun/hxgSpecRepo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'ImagesPicker_Example' do
   pod 'ImagesPicker', :path => '../'
   pod 'SnapKit', '~> 4.0.0'
-  pod 'BaseLib', '~> 0.0.9'
+  pod 'BaseLib', '~> 0.1.0'
   pod 'RxDataSources', '~> 3.0.2'
 
   target 'ImagesPicker_Tests' do
@@ -16,4 +15,6 @@ target 'ImagesPicker_Example' do
 
     
   end
+  
 end
+

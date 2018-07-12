@@ -21,10 +21,11 @@ public enum PickImageStatus {
 
 public class PickImageCell: UICollectionViewCell {
     
-    @IBOutlet weak var pickButton: UIButton!
+    
+    @IBOutlet weak var pickButton: FocalButton!
     @IBOutlet weak var photoImageView: UIImageView!
     var status: PickImageStatus = .unselect
-    
+
     var bag: DisposeBag?
     var obserSelectModels: BehaviorRelay<[ImagePickerModel]> = BehaviorRelay.init(value: [])
     var model: ImagePickerModel? {
@@ -62,9 +63,9 @@ public class PickImageCell: UICollectionViewCell {
     
     public override func awakeFromNib() {
         super.awakeFromNib()
-        self.pickButton.imageView?.contentMode = .scaleAspectFit
-        self.pickButton.setImage(ImageResource.checkBox.image, for: .selected)
-        self.pickButton.setImage(ImageResource.uncheckBox.image, for: .normal)
+        self.pickButton.imageView?.contentMode = .scaleAspectFit        
+        self.pickButton.setBackgroundImage(ImageResource.checkBox.image, for: .selected)
+        self.pickButton.setBackgroundImage(ImageResource.uncheckBox.image, for: .normal)
         self.pickButton.imageView?.contentMode = .center
     }
     
@@ -72,6 +73,10 @@ public class PickImageCell: UICollectionViewCell {
         super.prepareForReuse()
         bag = nil
         status = .unselect
+    }
+    
+    deinit {
+        bag = nil
     }
     
 }

@@ -29,8 +29,8 @@ class AlbumCell: UITableViewCell {
                     let imageOptions = PHImageRequestOptions()
                     imageOptions.resizeMode = .exact
                     PHImageManager.default().requestImage(for: firstImageAsset, targetSize: size, contentMode: .aspectFill, options: imageOptions, resultHandler: { (image, info) -> Void in
-                        DispatchQueue.main.async {
-                            self.albumImageView.image = image
+                        DispatchQueue.main.async { [weak self] in
+                            self?.albumImageView.image = image
                         }
                     })
                 }
@@ -40,8 +40,8 @@ class AlbumCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-
+        self.moreImageView.image = ImageResource.more.image
+    
     }
     
     

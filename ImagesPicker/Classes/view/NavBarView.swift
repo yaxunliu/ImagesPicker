@@ -14,9 +14,10 @@ import BaseLib
 class NavBarView: UIView {
     
     var titleLabel: UILabel = UILabel()
-    var backButton: UIButton = UIButton(type: .custom)
-    lazy var rightButton: UIButton = {
-        let btn = UIButton(type: .custom)
+    var backButton: FocalButton = FocalButton(type: .custom)
+    
+    lazy var rightButton: FocalButton = {
+        let btn = FocalButton(type: .custom)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         return btn
@@ -54,7 +55,7 @@ class NavBarView: UIView {
         backButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         barView.addSubview(titleLabel)
         barView.addSubview(backButton)
-        backButton.setImage(UIImage.init(named: "ic_back") , for: .normal)
+        backButton.setImage(ImageResource.back.image , for: .normal)
         
         barView.snp.makeConstraints { (make) in
             make.bottom.left.right.equalToSuperview()

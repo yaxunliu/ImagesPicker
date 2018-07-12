@@ -17,14 +17,13 @@ enum ImageResource: String {
     var image: UIImage? {
         var imageName = ""
         if UIScreen.main.scale == 2.0 {
-            imageName = self.rawValue + "2x"
+            imageName = self.rawValue + "2x" + ".png"
         } else if UIScreen.main.scale == 3.0 {
-            imageName = self.rawValue + "3x"
+            imageName = self.rawValue + "3x" + ".png"
         } else {
-            imageName = self.rawValue + "2x"
+            imageName = self.rawValue + "2x" + ".png"
         }
-        
-        let bundle = Bundle.init(path: Bundle.init(for: ImagePreviewCell.self).bundlePath + "ImagesPicker.bundle")
+        let bundle = Bundle.init(path: Bundle.init(for: ImagePreviewCell.self).bundlePath + "/ImagesPicker.bundle")
         return UIImage.init(named: imageName, in: bundle, compatibleWith: nil)
     }
 }

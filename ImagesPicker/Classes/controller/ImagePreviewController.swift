@@ -42,7 +42,7 @@ class ImagePreviewController: UIViewController {
     var oprationAction: BehaviorSubject<(isAddAction: Bool?, imageModel: ImagePickerModel?)?> = BehaviorSubject(value: nil)
 
     /// 数据源
-    var sectiomModels: BehaviorRelay<[ImagepPickerSectionModel]>?
+    var sectiomModels: BehaviorRelay<[ImagePickerSectionModel]>?
     var totalAssets: [ImagePickerModel]
     var selectedAssets: BehaviorRelay<[ImagePickerModel]> = BehaviorRelay<[ImagePickerModel]>.init(value: [])
     
@@ -61,7 +61,7 @@ class ImagePreviewController: UIViewController {
     init(previewAssets: [ImagePickerModel], begin: Int, selected: [ImagePickerModel], endPreview: @escaping ([ImagePickerModel], ExitStatus) -> ()) {
         totalAssets = previewAssets
         currentIndex.accept(begin)
-        sectiomModels = BehaviorRelay.init(value: [ImagepPickerSectionModel.init(header: "preview", images: previewAssets)])
+        sectiomModels = BehaviorRelay.init(value: [ImagePickerSectionModel.init(header: "preview", images: previewAssets)])
         currentModel.accept(previewAssets[begin])
         selectedAssets.accept(selected)
         endPreviewAssets = endPreview
@@ -87,9 +87,6 @@ class ImagePreviewController: UIViewController {
         
     }
     
-    deinit {
-        print("preview controller deinit")
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -131,7 +128,7 @@ extension ImagePreviewController {
     }
     
     func bindDataSource() {
-        let dataSource = RxCollectionViewSectionedReloadDataSource<ImagepPickerSectionModel>.init(configureCell: { [unowned self] (ds, collection, index, model) -> UICollectionViewCell in
+        let dataSource = RxCollectionViewSectionedReloadDataSource<ImagePickerSectionModel>.init(configureCell: { [unowned self] (ds, collection, index, model) -> UICollectionViewCell in
             let cell = collection.dequeueReusableCell(withReuseIdentifier: "ImagePreviewCell", for: index) as! ImagePreviewCell
             self._imageCacheManger.requestImage(for: model.asset, targetSize: UIScreen.main.bounds.size, contentMode: .aspectFit, options: nil, resultHandler: { (image, info) in
                 cell.previewImageView.image = image
@@ -161,6 +158,7 @@ extension ImagePreviewController {
         observeSingleTap()
         /// 监听选中和取消选中事件
         observerDeselectOrSelect()
+    
     }
     
     func observeSingleTap() {
@@ -217,7 +215,8 @@ extension ImagePreviewController {
     
     func observerDeselectOrSelect() {
         // 1.粗发点击 选中或者取消
-        topView.selectButton.rx.tap
+        topView.selectButton.rx
+            .controlEvent([.touchUpInside])
             .map{ [unowned self] _ in
                 self.topView.selectButton.isSelected || self.selectedAssets.value.count < 9
             }// >= 9 && isSelected = false
@@ -232,23 +231,20 @@ extension ImagePreviewController {
         oprationAction.subscribe { [unowned self] (event) in
             let ele = event.element ?? nil
             let addAction = ele?.isAddAction
+            guard let operation = ele else { return }
             if addAction == nil { // 不能添加
-                // TODO: 需要添加弹框提示 提示用户不能添加超过9张图片
-                print("不能添加！！！！")
+                self.show(nil, content: "你最多只能选择9张图片", cancel: "知道了")
                 return
             }
-            guard let operation = ele else { return }
             var images = self.selectedAssets.value
             if operation.isAddAction! { // 添加
                 if images.count <= 9 {
-                    print("添加操作")
                     images.append(operation.imageModel!)
                 }
             } else { // 删除
                 if images.count > 0 {
                     guard let index = images.index(where: { $0.identify == operation.imageModel!.identify }) else { return }
                     images.remove(at: index)
-                    print("删除操作")
                 }
             }
             self.selectedAssets.accept(images)
@@ -263,7 +259,6 @@ extension ImagePreviewController {
                 // 取消选中
                 self.topView.selectButton.isSelected = false
                 self.topView.selectButton.setTitle(nil, for: .normal)
-                print("取消选中, 设置内容为nil")
                 return
             }
             self.topView.selectButton.isSelected = true
