@@ -10,11 +10,5 @@ target 'ImagesPicker_Example' do
   pod 'BaseLib', '~> 0.1.0'
   pod 'RxDataSources', '~> 3.0.2'
 
-  target 'ImagesPicker_Tests' do
-    inherit! :search_paths
-
-    
-  end
-  
 end
 

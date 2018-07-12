@@ -1,4 +1,3 @@
-
 # 文件放在根目录本文件放在私有库根目录
 desc 'update 自动化升级维护私有库工具'
 lane :update do |options|
@@ -13,24 +12,27 @@ lane :update do |options|
   	  clean: true,
   	  podfile: "./Example/Podfile"
 	)
+
 	# 2.提交到本地仓库 => 提交到远程仓库
 	git_add(path: ".")
 	git_commit(path: ".", message: "message => #{mark}")
 	push_to_git_remote(
-		remote: "origin",
-	    local_branch: "#{envrioment}",
-	  	remote_branch: "#{envrioment}",
-	)
+  	  remote: "origin",
+  	  local_branch: "#{envrioment}",
+      remote_branch: "#{envrioment}",
+    )
 
     # 3.这里打标签
     add_git_tag(
   	  tag: tagNum
 	)
 	push_git_tags
+
 	# 4. 并提至私有索引库
 	pod_lib_lint(
 		allow_warnings: true,
 		private: true
 	)
 	pod_push(path: "./ImagesPicker.podspec", repo: "HxgSpecRepo", allow_warnings: true)
+
 end
