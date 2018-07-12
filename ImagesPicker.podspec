@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
       'ImagesPicker' => ['ImagesPicker/Assets/*.png']
   }
-  s.dependency 'BaseLib', '~> 0.1.0'
+  s.dependency 'BaseLib', '~> 0.0.7'
   s.dependency 'RxDataSources', '~> 3.0.2'
   s.dependency 'SnapKit', '~> 4.0.0'
 end
