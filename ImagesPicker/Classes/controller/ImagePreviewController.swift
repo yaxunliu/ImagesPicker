@@ -224,7 +224,7 @@ extension ImagePreviewController {
                 if canAdd {
                     return (isAddAction: !self.topView.selectButton.isSelected, imageModel: self.totalAssets[self.currentIndex.value])
                 }
-                return nil
+                return (isAddAction: nil, imageModel: nil)
         }.bind(to: oprationAction).disposed(by: bag)
         
         // 2.添加选中图片和删除选中图片

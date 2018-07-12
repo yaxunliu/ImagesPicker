@@ -19,11 +19,7 @@ or alternatively using `brew cask install fastlane`
 ```
 fastlane update
 ```
-<<<<<<< HEAD
-automatic update private pod version
-=======
 update 自动化升级维护私有库工具
->>>>>>> b338361303eebf60e458385ce712b9239db883ff
 
 ----
 
