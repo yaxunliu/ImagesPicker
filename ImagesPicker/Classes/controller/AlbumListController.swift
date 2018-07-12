@@ -51,7 +51,7 @@ public class AlbumListController: UIViewController {
     let bag = DisposeBag()
     var isPush: Bool = true
     var albums: BehaviorRelay<[AlbumSection]> = BehaviorRelay.init(value: [])
-    
+    var _maxSelectNum = 9
     var tableView: UITableView?
     
     lazy var navBar: NavBarView = {
@@ -65,8 +65,9 @@ public class AlbumListController: UIViewController {
     var _selectImages: ([ImagePickerModel]) -> ()?
     
     
-    public init(selectImages: @escaping ([ImagePickerModel]) -> () ) {
+    public init(selectImages: @escaping ([ImagePickerModel]) -> (), maxSelectNum: Int) {
         _selectImages = selectImages
+        _maxSelectNum = maxSelectNum
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -127,14 +128,11 @@ extension AlbumListController {
             DispatchQueue.main.async { [unowned self] in 
                 let items = sysAblums + cusAblums
                 self.albums.accept([AlbumSection.init(header: "ablum", albums: items)])
-                
                 let imgPicker = ImagePickerController(selectImages: { [unowned self] (models) in
                     self._selectImages(models)
                     self.navigationController?.dismiss(animated: true, completion: nil)
-                })
-                
+                }, maxNum: self._maxSelectNum)
                 imgPicker.album = items[0]
-                
                 if self.isPush {
                     self.navigationController?.pushViewController(imgPicker, animated: false)
                     self.isPush = false
@@ -151,12 +149,13 @@ extension AlbumListController {
         tableView?.rx.itemSelected.subscribe { [unowned self] (event) in
             guard let index = event.element else { return }
             let album = self.albums.value[0].albums[index.row]
-            let imagePicker = ImagePickerController(selectImages: { [unowned self] (models) in
+            
+            let imgPicker = ImagePickerController(selectImages: { [unowned self] (models) in
                 self._selectImages(models)
                 self.navigationController?.dismiss(animated: true, completion: nil)
-            })
-            imagePicker.album = album
-            self.navigationController?.pushViewController(imagePicker , animated: true)
+            }, maxNum: self._maxSelectNum)
+            imgPicker.album = album
+            self.navigationController?.pushViewController(imgPicker , animated: true)
 
             self.tableView?.deselectRow(at: index, animated: true)
         }.disposed(by: bag)

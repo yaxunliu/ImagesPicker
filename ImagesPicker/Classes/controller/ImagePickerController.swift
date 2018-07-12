@@ -48,12 +48,13 @@ class ImagePickerController: UIViewController {
     var oprationAction: BehaviorSubject<(isAddAction: Bool?, imageModel: ImagePickerModel?)?> = BehaviorSubject(value: nil)
     var selectImages: BehaviorRelay<[ImagePickerModel]> = BehaviorRelay(value: [])
     var selectImageBlock: ([ImagePickerModel]) -> ()
-    
+    var maxSelecNum = 9
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
     
     //MARk: 初始化方法
-    init(selectImages: @escaping ([ImagePickerModel]) -> ()) {
+    init(selectImages: @escaping ([ImagePickerModel]) -> (), maxNum: Int) {
         selectImageBlock = selectImages
+        maxSelecNum = maxNum
         super.init(nibName: nil, bundle: nil)
     }
     required init?(coder aDecoder: NSCoder) {
@@ -111,11 +112,11 @@ extension ImagePickerController {
     func bindDataSource() {
         let dataSource = RxCollectionViewSectionedReloadDataSource<ImagePickerSectionModel>.init(configureCell: { [weak self] (ds, collection, index, model) -> UICollectionViewCell in
             guard let `self` = self else { return UICollectionViewCell() }
-            
             let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "PickImageCell", for: index) as! PickImageCell
             cell.model = model
-            self._imageCacheManger.requestImage(for: model.asset, targetSize: self._itemSize, contentMode: .aspectFill, options: nil, resultHandler: { (image, info) in
-                if cell.model?.identify == model.asset.localIdentifier {
+            cell.maxNum = self.maxSelecNum
+            self._imageCacheManger.requestImage(for: model.asset!, targetSize: self._itemSize, contentMode: .aspectFill, options: nil, resultHandler: { (image, info) in
+                if cell.model?.identify == model.asset!.localIdentifier {
                     cell.photoImageView.image = image
                 }
             })
@@ -154,7 +155,7 @@ extension ImagePickerController {
         var models: [ImagePickerModel] = []
         for i in 0..<(self.album?.fetchResult.count)! {
             let asset = self.album?.fetchResult[i]
-            let model = ImagePickerModel.init(asset: asset!, identify: asset!.localIdentifier)
+            let model = ImagePickerModel.init(asset: asset!, identify: asset!.localIdentifier, image: nil)
             models.append(model)
         }
         models.reverse()
@@ -251,7 +252,7 @@ extension ImagePickerController {
             let addAction = ele?.isAddAction
             guard let operation = ele else { return }
             if addAction == nil { // 不能添加
-                self?.show(nil, content: "你最多只能选择9张图片", cancel: "知道了")
+                self?.show(nil, content: "你最多只能选择\(String(describing: (self?.maxSelecNum)!))张图片", cancel: "知道了")
                 return
             }
             guard var images = self?.selectImages.value else { return }

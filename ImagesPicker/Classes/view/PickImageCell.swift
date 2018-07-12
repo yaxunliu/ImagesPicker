@@ -24,6 +24,7 @@ public class PickImageCell: UICollectionViewCell {
     
     @IBOutlet weak var pickButton: FocalButton!
     @IBOutlet weak var photoImageView: UIImageView!
+    var maxNum: Int = 9
     var status: PickImageStatus = .unselect
 
     var bag: DisposeBag?
@@ -35,7 +36,7 @@ public class PickImageCell: UICollectionViewCell {
                 guard let selectModels = modelsEvent.element else { return }
                 // 获取当前选中的下标
                 guard let index = selectModels.index(where: { $0.identify == self.model?.identify }) else {
-                    if selectModels.count >= 9 { // 未选中
+                    if selectModels.count >= self.maxNum { // 未选中
                         self.status = .unenable
                         self.alpha = 0.5
                     } else {

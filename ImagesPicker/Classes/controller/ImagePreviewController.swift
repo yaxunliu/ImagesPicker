@@ -19,7 +19,9 @@ public enum ExitStatus {
     case dismiss
 }
 
-class ImagePreviewController: UIViewController {
+
+
+public class ImagePreviewController: UIViewController {
 
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -58,7 +60,7 @@ class ImagePreviewController: UIViewController {
      * @pramas: selected 已经选中的资源
      * @pramas: endPreview 结束选中的资源
      */
-    init(previewAssets: [ImagePickerModel], begin: Int, selected: [ImagePickerModel], endPreview: @escaping ([ImagePickerModel], ExitStatus) -> ()) {
+    public init(previewAssets: [ImagePickerModel], begin: Int, selected: [ImagePickerModel], endPreview: @escaping ([ImagePickerModel], ExitStatus) -> ()) {
         totalAssets = previewAssets
         currentIndex.accept(begin)
         sectiomModels = BehaviorRelay.init(value: [ImagePickerSectionModel.init(header: "preview", images: previewAssets)])
@@ -75,11 +77,11 @@ class ImagePreviewController: UIViewController {
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         observer()
@@ -88,19 +90,19 @@ class ImagePreviewController: UIViewController {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override public func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
-    override var prefersStatusBarHidden: Bool { return true }
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {}
+    override public var prefersStatusBarHidden: Bool { return true }
 
 }
 
@@ -130,19 +132,20 @@ extension ImagePreviewController {
     func bindDataSource() {
         let dataSource = RxCollectionViewSectionedReloadDataSource<ImagePickerSectionModel>.init(configureCell: { [unowned self] (ds, collection, index, model) -> UICollectionViewCell in
             let cell = collection.dequeueReusableCell(withReuseIdentifier: "ImagePreviewCell", for: index) as! ImagePreviewCell
-            self._imageCacheManger.requestImage(for: model.asset, targetSize: UIScreen.main.bounds.size, contentMode: .aspectFit, options: nil, resultHandler: { (image, info) in
-                cell.previewImageView.image = image
-                cell.model = model
-                cell.tap?.rx.event.map({ [unowned self] _ in
-                    return !self.showNav.value
-                }).bind(to: self.showNav).disposed(by: cell.bag!)
-            })
-            return cell
+
+            if model.asset != nil {
+                self._imageCacheManger.requestImage(for: model.asset!, targetSize: UIScreen.main.bounds.size, contentMode: .aspectFit, options: nil, resultHandler: { (image, info) in
+                    cell.previewImageView.image = image
+                    cell.model = model
+                })
+            }
             
+            cell.tap?.rx.event.map({ [unowned self] _ in
+                return !self.showNav.value
+            }).bind(to: self.showNav).disposed(by: cell.bag!)
+            return cell
         })
-        sectiomModels?.bind(to: collectionView.rx.items(dataSource: dataSource)).disposed(by: bag)
-        
-        
+        sectiomModels?.bind(to: collectionView.rx.items(dataSource: dataSource)).disposed(by: bag)        
         collectionView.performBatchUpdates(nil) { [unowned self] _ in
             self.collectionView.setContentOffset(CGPoint(x: CGFloat(self.currentIndex.value) * self.collectionView.bounds.width, y: 0) , animated: false)
         }
