@@ -8,6 +8,7 @@
 
 import UIKit
 import ImagesPicker
+import BaseLib
 
 class ViewController: UIViewController {
 
@@ -15,14 +16,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .red
         
+    
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let vc = AlbumListController { (models) in
+        
+        let model = ImagePickerModel.init(asset: nil, identify: nil, image: UIImage.init(named: "img_black"))
+        
+        let vc = ImagePreviewController.init(previewAssets: [model], begin: 0, selected: []) { (model, status) in
             
         }
         present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
 
+        
+        
     }
 
 }
