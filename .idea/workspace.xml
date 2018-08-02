@@ -2,36 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ff7ab46-021b-459d-8cfb-a6c061b8a812" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/AlbumCell.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/AlbumCell.xib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/AlbumListController.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/ImageManger.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/ImagePickerController.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/NavBarView.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/PickImageCell.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Classes/PickImageCell.xib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/ic_back.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/ic_back.imageset/ic_back@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/ic_back.imageset/ic_back@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_black.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_black.imageset/img_black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_black.imageset/img_black@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_black.imageset/img_black@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_blue.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_blue.imageset/img_blue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_blue.imageset/img_blue@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/img_blue.imageset/img_blue@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/moreinfo.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/moreinfo.imageset/moreinfo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/moreinfo.imageset/moreinfo@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Example/ImagesPicker/Images.xcassets/moreinfo.imageset/moreinfo@3x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Example/ImagesPicker.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Example/ImagesPicker.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Example/ImagesPicker/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Example/ImagesPicker/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Example/ImagesPicker/ViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Example/ImagesPicker/ViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Example/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Example/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Example/Tests/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Example/Tests/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ImagesPicker.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/ImagesPicker.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ImagesPicker/Classes/view/ImagePreviewTopView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ImagesPicker/Classes/view/ImagePreviewTopView.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,7 +12,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_979c318f300c8184190295a3c7a5d68548c2694a" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_2170506d8d510351d94074b0ee8cc468520d936d" />
   <component name="FavoritesManager">
     <favorites_list name="_Pods" />
   </component>
@@ -94,8 +66,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Cidr.FilesView" />
       <pane id="ProjectPane" />
+      <pane id="Cidr.FilesView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -136,23 +108,24 @@
       <workItem from="1531132626207" duration="189000" />
       <workItem from="1531149434297" duration="195000" />
       <workItem from="1531191906584" duration="55000" />
+      <workItem from="1531794802913" duration="5000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="439000" />
+    <option name="totallyTimeSpent" value="444000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="114" y="97" width="1636" height="933" extended-state="0" />
     <layout>
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4952153" visible="true" weight="0.17275542" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49401915" weight="0.17275542" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32948717" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" sideWeight="0.5047847" side_tool="true" visible="true" weight="0.17275542" />
+      <window_info id="Structure" order="1" sideWeight="0.50598085" side_tool="true" visible="true" weight="0.17275542" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" sideWeight="0.50128204" side_tool="true" weight="0.21353066" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -172,6 +145,16 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Example/ImagesPicker/Classes/ImagePickerController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1098">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="e#156#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Example/ImagesPicker/Classes/ImagePickerController.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
