@@ -1,21 +1,20 @@
 PODS:
   - Alamofire (4.7.2)
-  - BaseLib (0.1.1):
-    - BaseLib/Extension (= 0.1.1)
-    - BaseLib/Network (= 0.1.1)
-  - BaseLib/Extension (0.1.1):
+  - BaseLib (1.0.3):
+    - KeychainSwift (~> 11.0)
+    - Kingfisher (~> 4.6.3)
     - Moya/RxSwift (~> 11.0)
     - ObjectMapper (~> 3.3.0)
-    - RxSwift (~> 4.2.0)
-  - BaseLib/Network (0.1.1):
-    - Moya/RxSwift (~> 11.0)
     - RxCocoa (~> 4.2.0)
     - RxSwift (~> 4.2.0)
+    - YYText
   - Differentiator (3.0.2)
-  - ImagesPicker (0.0.5):
-    - BaseLib (~> 0.1.1)
+  - ImagesPicker (0.0.6):
+    - BaseLib (~> 1.0.3)
     - RxDataSources (~> 3.0.2)
     - SnapKit (~> 4.0.0)
+  - KeychainSwift (11.0.0)
+  - Kingfisher (4.6.4)
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
@@ -32,9 +31,10 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.2.0)
   - SnapKit (4.0.0)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
-  - BaseLib (~> 0.1.1)
+  - BaseLib (~> 1.0.3)
   - ImagesPicker (from `../`)
   - RxDataSources (~> 3.0.2)
   - SnapKit (~> 4.0.0)
@@ -45,6 +45,8 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Differentiator
+    - KeychainSwift
+    - Kingfisher
     - Moya
     - ObjectMapper
     - Result
@@ -52,6 +54,7 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - SnapKit
+    - YYText
 
 EXTERNAL SOURCES:
   ImagesPicker:
@@ -59,9 +62,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  BaseLib: 4f2be3a55c365d7ddb4c549f30777c5331bc0ee0
+  BaseLib: 75b3aa99a11d1f8c69576f730c47e635a59b04e5
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
-  ImagesPicker: 2dc632aaedf42d7469285db74896664947878f84
+  ImagesPicker: ad8d11d948e364e1bf49b7d302b39697f6502241
+  KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
+  Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
@@ -69,7 +74,8 @@ SPEC CHECKSUMS:
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 3e610b00fbd5838db388b5d108d521c4479645b1
+PODFILE CHECKSUM: d8444c95834fce5e98d17830fb85605230c5407a
 
 COCOAPODS: 1.5.0

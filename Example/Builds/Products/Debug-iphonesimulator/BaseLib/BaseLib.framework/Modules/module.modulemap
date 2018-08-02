@@ -1,0 +1,11 @@
+framework module BaseLib {
+  umbrella header "BaseLib-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module BaseLib.Swift {
+    header "BaseLib-Swift.h"
+    requires objc
+}

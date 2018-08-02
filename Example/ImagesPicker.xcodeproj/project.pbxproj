@@ -6,14 +6,43 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		9E893A1D210CC9230093A0B6 /* UniversalImagesPicker */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9E893A1E210CC9230093A0B6 /* Build configuration list for PBXAggregateTarget "UniversalImagesPicker" */;
+			buildPhases = (
+				9E893A21210CC92C0093A0B6 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = UniversalImagesPicker;
+			productName = UniversalImagesPicker;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		08F3118D969B744986B00504 /* Pods_ImagesPicker_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19856289043E9F709CE0B49 /* Pods_ImagesPicker_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		94DF2A81241E4D000F1E9408 /* Pods_ImagesPicker_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8939A3210CBD960093A0B6 /* Pods_ImagesPicker_Example.framework */; };
+		9E281BAC211341C700999F24 /* Classes in Resources */ = {isa = PBXBuildFile; fileRef = 9E281BAB211341C700999F24 /* Classes */; };
+		9E281BAE211345C100999F24 /* RxImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E281BAD211345C100999F24 /* RxImagePickerController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9E89394A210CBC140093A0B6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		070B7FC125294C6D156E8DE3 /* Pods-ImagesPicker_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagesPicker_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImagesPicker_Example/Pods-ImagesPicker_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -24,14 +53,25 @@
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		9666EFE781FD725E46F86194 /* Pods-ImagesPicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagesPicker_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImagesPicker_Tests/Pods-ImagesPicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E281BAB211341C700999F24 /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Classes; path = ../../ImagesPicker/Classes; sourceTree = "<group>"; };
+		9E281BAD211345C100999F24 /* RxImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxImagePickerController.swift; sourceTree = "<group>"; };
+		9E893993210CBD0E0093A0B6 /* BaseLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BaseLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E893995210CBD290093A0B6 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E893997210CBD740093A0B6 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E893999210CBD8C0093A0B6 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E89399B210CBD960093A0B6 /* Differentiator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Differentiator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E89399D210CBD960093A0B6 /* ImagesPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImagesPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E89399F210CBD960093A0B6 /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E8939A1210CBD960093A0B6 /* ObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E8939A3210CBD960093A0B6 /* Pods_ImagesPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ImagesPicker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E8939A5210CBD960093A0B6 /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E8939A7210CBD960093A0B6 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E8939A9210CBD960093A0B6 /* RxDataSources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxDataSources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2FF74304C112061ACFCDCC1 /* Pods_ImagesPicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImagesPicker_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7CCE4515413EE67E32BD74 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E19856289043E9F709CE0B49 /* Pods_ImagesPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImagesPicker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F088288103611A69A950C99A /* Pods-ImagesPicker_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagesPicker_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImagesPicker_Tests/Pods-ImagesPicker_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08F3118D969B744986B00504 /* Pods_ImagesPicker_Example.framework in Frameworks */,
+				94DF2A81241E4D000F1E9408 /* Pods_ImagesPicker_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +92,6 @@
 			children = (
 				45E3883C74C3FA4B9ED6F22A /* Pods-ImagesPicker_Example.debug.xcconfig */,
 				070B7FC125294C6D156E8DE3 /* Pods-ImagesPicker_Example.release.xcconfig */,
-				9666EFE781FD725E46F86194 /* Pods-ImagesPicker_Tests.debug.xcconfig */,
-				F088288103611A69A950C99A /* Pods-ImagesPicker_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -79,9 +118,10 @@
 		607FACD21AFB9204008FA782 /* Example for ImagesPicker */ = {
 			isa = PBXGroup;
 			children = (
+				9E281BAB211341C700999F24 /* Classes */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				9E281BAD211345C100999F24 /* RxImagePickerController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -111,6 +151,18 @@
 		789C7F742A44421E157402E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E89399B210CBD960093A0B6 /* Differentiator.framework */,
+				9E89399D210CBD960093A0B6 /* ImagesPicker.framework */,
+				9E89399F210CBD960093A0B6 /* Moya.framework */,
+				9E8939A1210CBD960093A0B6 /* ObjectMapper.framework */,
+				9E8939A3210CBD960093A0B6 /* Pods_ImagesPicker_Example.framework */,
+				9E8939A5210CBD960093A0B6 /* Result.framework */,
+				9E8939A7210CBD960093A0B6 /* RxCocoa.framework */,
+				9E8939A9210CBD960093A0B6 /* RxDataSources.framework */,
+				9E893999210CBD8C0093A0B6 /* Alamofire.framework */,
+				9E893997210CBD740093A0B6 /* SnapKit.framework */,
+				9E893995210CBD290093A0B6 /* RxSwift.framework */,
+				9E893993210CBD0E0093A0B6 /* BaseLib.framework */,
 				E19856289043E9F709CE0B49 /* Pods_ImagesPicker_Example.framework */,
 				C2FF74304C112061ACFCDCC1 /* Pods_ImagesPicker_Tests.framework */,
 			);
@@ -129,6 +181,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				7647DA130CC50065A2D6BCFF /* [CP] Embed Pods Frameworks */,
+				9E89394A210CBC140093A0B6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,7 +198,7 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
@@ -153,6 +206,11 @@
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 667LB2M6MM;
 						LastSwiftMigration = 0900;
+					};
+					9E893A1D210CC9230093A0B6 = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = 667LB2M6MM;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -170,6 +228,7 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* ImagesPicker_Example */,
+				9E893A1D210CC9230093A0B6 /* UniversalImagesPicker */,
 			);
 		};
 /* End PBXProject section */
@@ -179,7 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				9E281BAC211341C700999F24 /* Classes in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -217,6 +276,8 @@
 				"${BUILT_PRODUCTS_DIR}/BaseLib/BaseLib.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/ImagesPicker/ImagesPicker.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -224,6 +285,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/YYText/YYText.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -231,6 +293,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BaseLib.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagesPicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -238,11 +302,25 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYText.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ImagesPicker_Example/Pods-ImagesPicker_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9E893A21210CC92C0093A0B6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${UniversalImagesPicker}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}\"\n\n# Step 6. Convenience step to open the project's directory in Finder\nopen \"${PROJECT_DIR}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -251,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E281BAE211345C100999F24 /* RxImagePickerController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
@@ -259,14 +338,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -381,7 +452,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45E3883C74C3FA4B9ED6F22A /* Pods-ImagesPicker_Example.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 667LB2M6MM;
 				INFOPLIST_FILE = ImagesPicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -398,7 +471,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 070B7FC125294C6D156E8DE3 /* Pods-ImagesPicker_Example.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 667LB2M6MM;
 				INFOPLIST_FILE = ImagesPicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -408,6 +483,24 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		9E893A1F210CC9230093A0B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 667LB2M6MM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9E893A20210CC9230093A0B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 667LB2M6MM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -428,6 +521,15 @@
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
 				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E893A1E210CC9230093A0B6 /* Build configuration list for PBXAggregateTarget "UniversalImagesPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E893A1F210CC9230093A0B6 /* Debug */,
+				9E893A20210CC9230093A0B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

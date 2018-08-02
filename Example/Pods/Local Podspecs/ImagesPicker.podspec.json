@@ -1,6 +1,6 @@
 {
   "name": "ImagesPicker",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "summary": "图片选择器",
   "description": "iPhone photos picker",
   "homepage": "https://github.com/yaxunliu/ImagesPicker",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "git@github.com:yaxunliu/ImagesPicker.git",
-    "tag": "0.0.5"
+    "tag": "0.0.6"
   },
   "platforms": {
     "ios": "9.0"
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "BaseLib": [
-      "~> 0.1.1"
+      "~> 1.0.3"
     ],
     "RxDataSources": [
       "~> 3.0.2"

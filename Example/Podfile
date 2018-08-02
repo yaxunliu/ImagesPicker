@@ -7,7 +7,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'ImagesPicker_Example' do
   pod 'ImagesPicker', :path => '../'
   pod 'SnapKit', '~> 4.0.0'
-  pod 'BaseLib', '~> 0.1.1'
+  pod 'BaseLib', '~> 1.0.3'
   pod 'RxDataSources', '~> 3.0.2'
 
 end

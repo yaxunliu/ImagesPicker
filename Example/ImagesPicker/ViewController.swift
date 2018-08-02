@@ -20,15 +20,8 @@ class ViewController: UIViewController {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        let model = ImagePickerModel.init(asset: nil, identify: nil, image: UIImage.init(named: "img_black"))
-        
-        let vc = ImagePreviewController.init(previewAssets: [model], begin: 0, selected: []) { (model, status) in
-            
-        }
-        present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
-
-        
+        let vc = RxImagePickerController()
+        self.present(vc, animated: true, completion: nil)
         
     }
 
