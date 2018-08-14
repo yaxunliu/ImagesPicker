@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ImagesPicker'
-  s.version          = '0.0.7'
+  s.version          = '0.0.8'
   s.summary          = '图片选择器'
   
   s.description      = <<-DESC
