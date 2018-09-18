@@ -27,18 +27,6 @@ public extension NSAttributedString {
 
 public extension String {
     
-//    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
-//        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-//        let boundingBox = NSString.init(string: self).boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [kCTFontAttributeName as NSAttributedStringKey: font], context: nil)
-//        return ceil(boundingBox.height)
-//    }
-//
-//    func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
-//        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-//        let boundingBox = NSString.init(string: self).boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [kCTFontAttributeName as NSAttributedStringKey : font], context: nil)
-//        return ceil(boundingBox.width)
-//    }
-    
     var isMobile: Bool {
         get {
             let phoneRegex: String = "^((13[0-9])|(15[^4,\\D])|(18[0,0-9])|(17[0,0-9]))\\d{8}$"

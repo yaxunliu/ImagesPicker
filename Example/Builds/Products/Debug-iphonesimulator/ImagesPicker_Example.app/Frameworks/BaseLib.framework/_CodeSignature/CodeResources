@@ -250,11 +250,59 @@
 		</data>
 		<key>BaseLib.bundle/Info.plist</key>
 		<data>
-		I65Mip+bKBbNSdwqcedjswjwWmQ=
+		Y6C/aIIF9KAlHzoPB0zPeE9xIKE=
+		</data>
+		<key>BaseLib.bundle/bg_registered@2x.png</key>
+		<data>
+		XxamjS+dFp2Q1vb71brLtAlK4u4=
+		</data>
+		<key>BaseLib.bundle/bg_registered@3x.png</key>
+		<data>
+		Xt4HuA/RkhtdGy4kgtE5Iz+qy+I=
+		</data>
+		<key>BaseLib.bundle/checkbox_select@2x.png</key>
+		<data>
+		KvZn8EF9/xGPwfkZMWVD67B+uHU=
+		</data>
+		<key>BaseLib.bundle/checkbox_unselect@2x.png</key>
+		<data>
+		usnGki3EoZn7EN2AEPb+JF1/XTQ=
+		</data>
+		<key>BaseLib.bundle/ic_close@2x.png</key>
+		<data>
+		siZ9L+Av/OHaCi4bQsrVSaKR434=
+		</data>
+		<key>BaseLib.bundle/ic_close@3x.png</key>
+		<data>
+		au4jo/jk0hi/7EtiXjQMPx2JfjU=
+		</data>
+		<key>BaseLib.bundle/ic_invisible@2x.png</key>
+		<data>
+		8QQI8IGAoVQWSZwd4cMjHaeu2wg=
+		</data>
+		<key>BaseLib.bundle/ic_invisible@3x.png</key>
+		<data>
+		PZ6wmfgTyXI6QsATCDXrOYz4j4c=
+		</data>
+		<key>BaseLib.bundle/img_or@2x.png</key>
+		<data>
+		Vet2MG5e4+hVHBdmTeWSXx1iOZA=
+		</data>
+		<key>BaseLib.bundle/img_or@3x.png</key>
+		<data>
+		zkANqsh5dbWykt5n4QLaGvM83JQ=
+		</data>
+		<key>BaseLib.bundle/img_weixin@2x.png</key>
+		<data>
+		WvzKs6z5AsLCJdnyvs13buYnHtc=
+		</data>
+		<key>BaseLib.bundle/img_weixin@3x.png</key>
+		<data>
+		Pdr5PVb5HnyKJwVxRk6k15Fil28=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		2+KIBmKYoq6TgGd/6VMCo6/vdJY=
+		KMiLRE5d0qknZAkfxgOWm/Oq9Bg=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -934,17 +982,149 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			I65Mip+bKBbNSdwqcedjswjwWmQ=
+			Y6C/aIIF9KAlHzoPB0zPeE9xIKE=
 			</data>
 			<key>hash2</key>
 			<data>
-			xj6J3SVxdZp1bMg90ckJsGEVemlK89CV9ljq/x5fG7w=
+			O5XWa0zvqXsuz1Ts+uendLxWEmtaKjapFcTiyn33NuE=
+			</data>
+		</dict>
+		<key>BaseLib.bundle/bg_registered@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XxamjS+dFp2Q1vb71brLtAlK4u4=
+			</data>
+			<key>hash2</key>
+			<data>
+			REg0HMsJSTJV9j0m3XK92IYp66kPqyfc4Jhuqh2a1vM=
+			</data>
+		</dict>
+		<key>BaseLib.bundle/bg_registered@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Xt4HuA/RkhtdGy4kgtE5Iz+qy+I=
+			</data>
+			<key>hash2</key>
+			<data>
+			iPWtx5KmZfcYr05dPbF0vhJ80YWMH+dgD+hkQ9R2IxU=
+			</data>
+		</dict>
+		<key>BaseLib.bundle/checkbox_select@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			KvZn8EF9/xGPwfkZMWVD67B+uHU=
+			</data>
+			<key>hash2</key>
+			<data>
+			U7pzZ2Jq1JgjoM6dIIUN7GHWYb/1crtKgrSBizlHmW4=
+			</data>
+		</dict>
+		<key>BaseLib.bundle/checkbox_unselect@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			usnGki3EoZn7EN2AEPb+JF1/XTQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			695c/gBglRwixL8nuEbvrcQLnXUfK0F27oN5cdC6U70=
+			</data>
+		</dict>
+		<key>BaseLib.bundle/ic_close@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			siZ9L+Av/OHaCi4bQsrVSaKR434=
+			</data>
+			<key>hash2</key>
+			<data>
+			//BinzuvPByZvNzmYHeRrjXPvqU23YhzQaoxSy8kOdI=
+			</data>
+		</dict>
+		<key>BaseLib.bundle/ic_close@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			au4jo/jk0hi/7EtiXjQMPx2JfjU=
+			</data>
+			<key>hash2</key>
+			<data>
+			212gzqrk9H8HCxg7cSpEts0+X3/9FJdH5PTfBHgMMBo=
+			</data>
+		</dict>
+		<key>BaseLib.bundle/ic_invisible@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8QQI8IGAoVQWSZwd4cMjHaeu2wg=
+			</data>
+			<key>hash2</key>
+			<data>
+			Fz56o5l4DfeJ0NbrsbZDMlHG7uG01X8pZBVXkrF2MoQ=
+			</data>
+		</dict>
+		<key>BaseLib.bundle/ic_invisible@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PZ6wmfgTyXI6QsATCDXrOYz4j4c=
+			</data>
+			<key>hash2</key>
+			<data>
+			iYZ5fQrF764obqFXjnnSiluWTVGLEqftW+MlT+jxwTs=
+			</data>
+		</dict>
+		<key>BaseLib.bundle/img_or@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Vet2MG5e4+hVHBdmTeWSXx1iOZA=
+			</data>
+			<key>hash2</key>
+			<data>
+			ztPAROz1IT/x8jf9k/x6EgtIldVFOUbE5fbsyBCKVeQ=
+			</data>
+		</dict>
+		<key>BaseLib.bundle/img_or@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zkANqsh5dbWykt5n4QLaGvM83JQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			evHSEwgSa0GTRnatcXq0qQVGUkSTNyj6vj6ea5OzsY0=
+			</data>
+		</dict>
+		<key>BaseLib.bundle/img_weixin@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WvzKs6z5AsLCJdnyvs13buYnHtc=
+			</data>
+			<key>hash2</key>
+			<data>
+			OP20zXedjIADC4QprIfXjwWrPsed+DEJeozMs8RwiA0=
+			</data>
+		</dict>
+		<key>BaseLib.bundle/img_weixin@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Pdr5PVb5HnyKJwVxRk6k15Fil28=
+			</data>
+			<key>hash2</key>
+			<data>
+			W4ZBGXc7tzYOp49pXK9Zp3hFO5qXJSeKQZf3Nilidlo=
 			</data>
 		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>
-		<key>^</key>
+		<key>^.*</key>
 		<true/>
 		<key>^.*\.lproj/</key>
 		<dict>
@@ -975,24 +1155,12 @@
 			<key>weight</key>
 			<real>11</real>
 		</dict>
-		<key>^</key>
-		<dict>
-			<key>weight</key>
-			<real>20</real>
-		</dict>
 		<key>^(.*/)?\.DS_Store$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
 			<real>2000</real>
-		</dict>
-		<key>^(Frameworks|SharedFrameworks|PlugIns|Plug-ins|XPCServices|Helpers|MacOS|Library/(Automator|Spotlight|LoginItems))/</key>
-		<dict>
-			<key>nested</key>
-			<true/>
-			<key>weight</key>
-			<real>10</real>
 		</dict>
 		<key>^.*</key>
 		<true/>
@@ -1028,13 +1196,6 @@
 			<true/>
 			<key>weight</key>
 			<real>20</real>
-		</dict>
-		<key>^[^/]+$</key>
-		<dict>
-			<key>nested</key>
-			<true/>
-			<key>weight</key>
-			<real>10</real>
 		</dict>
 		<key>^embedded\.provisionprofile$</key>
 		<dict>

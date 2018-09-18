@@ -166,6 +166,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import UIKit;
 @import CoreGraphics;
 @import Foundation;
+@import YYText;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -195,9 +196,9 @@ SWIFT_CLASS("_TtC7BaseLib14ActivityButton")
 
 SWIFT_CLASS("_TtC7BaseLib10AuthButton")
 @interface AuthButton : UIView
-- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)layoutSubviews;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
 
@@ -229,6 +230,25 @@ SWIFT_CLASS("_TtC7BaseLib14IconMoreButton")
 - (CGRect)titleRectForContentRect:(CGRect)contentRect SWIFT_WARN_UNUSED_RESULT;
 - (CGRect)imageRectForContentRect:(CGRect)contentRect SWIFT_WARN_UNUSED_RESULT;
 - (CGSize)sizeThatFits:(CGSize)size SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+
+
+
+@class NSTextContainer;
+
+SWIFT_CLASS("_TtC7BaseLib13PlaceTextView")
+@interface PlaceTextView : UITextView
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer * _Nullable)textContainer SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC7BaseLib13RichTextLabel")
+@interface RichTextLabel : YYLabel
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 

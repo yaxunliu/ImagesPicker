@@ -12,7 +12,7 @@ import RxSwift
 
 public class ActivityButton: UIView {
     
-    private(set) var tap: Observable<Void>?
+    public var tap: Observable<Void>?
     
     fileprivate lazy var activity: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView.init(activityIndicatorStyle: .white)
@@ -104,48 +104,81 @@ public enum AuthCodeButtonType {
 }
 
 
-@IBDesignable public class AuthButton: UIView {
+public class AuthButton: UIView {
     
     let bag = DisposeBag()
+    var getAuthSingal: Observable<Void>!
     
-    var authTap: Observable<Void>?
     
-    @IBOutlet weak var countDownLabel: UILabel!
-    @IBOutlet weak var activityView: UIActivityIndicatorView!
-    @IBOutlet weak var button: UIButton!
-    var contentView: UIView?
+    fileprivate var countDownLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 8)
+        label.isHidden = true
+        return label
+    }()
+    fileprivate var activityView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView.init(activityIndicatorStyle: .white)
+        view.hidesWhenStopped = true
+        view.stopAnimating()
+        return view
+    }()
+    var button: UIButton = {
+        let btn = UIButton.init(type: .system)
+        btn.setTitle("获取验证码", for: .normal)
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.white.cgColor
+        return btn
+    }()
     
-    @IBInspectable var fontSize: CGFloat = 10 {
-        didSet {
-            if contentView != nil {
-                self.button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
-                self.countDownLabel.font = UIFont.systemFont(ofSize: fontSize)
+    init(_ title: String = "获取验证码",
+         _ fontSize: CGFloat,
+         _ color: UIColor = .white,
+         _ btnWidth: CGFloat? = nil) {
+        super.init(frame: .zero)
+        
+        self.button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+        self.countDownLabel.font = UIFont.systemFont(ofSize: fontSize)
+        self.countDownLabel.textColor = color
+        self.button.setTitle(title, for: .normal)
+        self.button.setTitleColor(color, for: .normal)
+        self.button.layer.borderColor = color.cgColor
+        self.activityView.color = color
+        
+        getAuthSingal = self.button.rx.tap.asObservable()
+
+        self.addSubview(button)
+        self.addSubview(activityView)
+        self.addSubview(countDownLabel)
+        
+        
+        if btnWidth != nil {
+            button.snp.makeConstraints { (make) in
+                make.center.height.equalToSuperview()
+                make.width.equalTo(btnWidth!)
+            }
+        } else {
+            button.snp.makeConstraints { (make) in
+                make.edges.equalToSuperview()
             }
         }
-    }
-    
-    @IBInspectable var style: UIColor = .white {
-        didSet {
-            if contentView != nil {
-                setColor(style)
-            }
+        
+        
+        
+        activityView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
+        
+        countDownLabel.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupUI()
-    }
     required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupUI()
+        fatalError("init(coder:) has not been implemented")
     }
     
-    func setupUI() {
-        contentView = loadFromXib()
-        contentView?.frame = self.bounds
-        addSubview(contentView!)
-    }
     
     override public func layoutSubviews() {
         super.layoutSubviews()
@@ -153,20 +186,6 @@ public enum AuthCodeButtonType {
         self.button.layer.cornerRadius = self.frame.height * 0.5
     }
     
-    public func loadFromXib() -> UIView? {
-        let bundle = Bundle(for: AuthButton.self)
-        let nib = UINib.init(nibName: "AuthButton", bundle: bundle)
-        return nib.instantiate(withOwner: self, options: nil)[0] as? UIView
-    }
-    
-    public func setColor(_ style: UIColor) {
-        self.button.layer.borderColor = style.cgColor
-        self.countDownLabel.textColor = style
-        self.activityView.color = style
-        self.button.layer.borderWidth = 1
-        self.button.setTitleColor(style, for: .normal)
-        self.button.setTitle("获取验证码", for: .normal)
-    }
 }
 
 extension Reactive where Base == AuthButton {

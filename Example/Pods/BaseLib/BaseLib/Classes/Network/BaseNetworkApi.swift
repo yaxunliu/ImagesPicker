@@ -58,14 +58,20 @@ public enum BaseNetworkApi {
     case profileDynamic(token: String, start: Int?, limit: Int?, time_tran: Bool?, lt_gt: Bool?)
     /// 发表
     case publish(editContent: String, secret: Bool, token: String, client: String, images: [MultipartFormData])
-    /// 回复/评论
-    case commen(feedId: String?, choose_id: String?, content: String, comment: Bool, commenUserId: String, commentId: String, commenRootId: String)
+    /// 回复/评论 comment: true 评论 false: 回复
+    case commen(feedId: String?, choose_id: String?, content: String, comment: Bool, isCommenFeed: Bool, commenUserId: String, commentId: String, commenRootId: String)
     /// 获取详情评论列表
     case commenList(dynamicId: String, lastDynamicId: String?, commenNum: Int?, replyNum: Int?)
     /// 获取动态的详情
     case dynamicDetail(dynamicId: String, commenNum: Int?, replyNum: Int?)
     /// 获取回复列表
     case dynamicReplyList(dynamicId: String, commentId: String, lastCommenId: String?, replyNum: Int?)
+    /// 点赞评论
+    case niceCommen(commentID: String)
+    /// 分享动态
+    case shareDynamic(dynamicID: String)
+    /// 转发动态
+    case forwardDynamic(dynamicID: String, content: String?)
 }
 
 
@@ -131,8 +137,8 @@ extension BaseNetworkApi: TargetType {
             let paramdict = ["token": token, "feed_id": dynamic_id] as [String : Any]
             return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
             
-        case .commen(let feedId, let choose_id, let content, let comment, let commenUserId, let commentId, let commenRootId):
-            let paramdict = ["feed_id": feedId ?? "", "choose_id": choose_id ?? "", "content": content, "is_comment": comment, "to_user_id": commenUserId, "comment_id": commentId, "root_id": commenRootId] as [String : Any]
+        case .commen(let feedId, let choose_id, let content, let comment, let commenUserId, let commentId, let isCommenFeed, let commenRootId):
+            let paramdict = ["feed_id": feedId ?? "", "choose_id": choose_id ?? "", "content": content, "is_comment": comment, "to_user_id": commenUserId, "comment_id": commentId, "root_id": commenRootId, "is_to_feed": isCommenFeed] as [String : Any]
             return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
         
         case .commenList(let dynamicId, let lastDynamicId, let commenNum, let replyNum):
@@ -144,6 +150,16 @@ extension BaseNetworkApi: TargetType {
             return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
         case .dynamicReplyList(let dynamicId, let commentId, let lastCommenId, let replyNum):
             let paramdict = ["feed_id": dynamicId , "comment_id": commentId , "max_id": lastCommenId ?? 0, "reply_size": replyNum ?? 0] as [String : Any]
+            return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
+        case .niceCommen(let commentID):
+            let paramdict = ["comment_id": commentID] as [String : Any]
+            return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
+        case .shareDynamic(let dynamicID):
+            let paramdict = ["feed_id": dynamicID] as [String : Any]
+            return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
+            
+        case .forwardDynamic(let dynamicID, let content):
+            let paramdict = ["feed_id": dynamicID, "content": content ?? ""] as [String : Any]
             return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
          }
     }
@@ -173,24 +189,31 @@ extension BaseNetworkApi: TargetType {
         /******************
          动态相关
          *******************/
-        case .allDynamic:
-            return "/pubapi1/get_feeds"
-        case .profileDynamic:
-            return "/priapi1/my_feeds"
-        case .publish:
-            return "/priapi1/publish"
         case .nice:
             return "/priapi1/like_feed"
-        case .remove:
-            return "/priapi1/del_feed"
-        case .commen:
-            return "/priapi1/comment"
-        case .commenList:
-            return "/pubapi1/comment_list"
+        case .niceCommen:
+            return "/priapi1/like_comment"
+        case .publish:
+            return "/priapi1/publish"
+        case .shareDynamic:
+            return "/priapi1/share_feed"
         case .dynamicDetail:
             return "/pubapi1/get_feed_info"
+        case .profileDynamic:
+            return "/priapi1/my_feeds"
         case .dynamicReplyList:
             return "/pubapi1/reply_list"
+        case .commenList:
+            return "/pubapi1/comment_list"
+        case .allDynamic:
+            return "/pubapi1/get_feeds"
+        case .commen:
+            return "/priapi1/comment"
+        case .remove:
+            return "/priapi1/del_feed"
+        case .forwardDynamic:
+            return "/priapi1/forward_feed"
+        
 
         }
     }

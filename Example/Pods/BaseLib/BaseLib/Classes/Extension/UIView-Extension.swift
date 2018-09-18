@@ -80,6 +80,20 @@ public extension UIColor {
         let b = CGFloat(arc4random_uniform(255))
         return UIColor.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: 1)
     }
+    
+    class func getImage(color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context!.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+    
+
+    
 }
 
 
@@ -93,6 +107,15 @@ public enum AdaptorScreen {
 
 
 public extension UIScreen {
+    
+    public static func rateAdaptorWidth(_ standWidth: CGFloat) -> CGFloat {
+        return UIScreen.main.bounds.width / 375 * standWidth
+    }
+    
+    public static func rateAdaptorHeight(_ standHeight: CGFloat) -> CGFloat {
+        return UIScreen.main.bounds.height / 667 * standHeight
+    }
+    
     
     public static func adaptor(_ se: CGFloat, _ normal: CGFloat, _ plus: CGFloat, _ x: CGFloat, _ unAdaptor: CGFloat) -> CGFloat {
         switch self.screenEnum {

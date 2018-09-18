@@ -14,9 +14,7 @@ import ObjectMapper
 
 public struct AuthCodoResult: Mappable {
     public init?(map: Map) {
-        
     }
-    
     var code: Int?
     var data: String?
     var err_info: String?
@@ -62,10 +60,8 @@ public class AuthCodeViewModel {
     let authAcountIsVaild = BehaviorRelay.init(value: false)
     /// 验证码是否通过验证
     let authCodePass = BehaviorRelay.init(value: false)
-    
     /// 获取验证码失败的信息
     let authError = BehaviorRelay.init(value: AuthCodeError.none)
-    
     /// 倒计时定时器(发送验证码逻辑)
     /// 验证码按钮的状态
     var authCodeStatus = BehaviorRelay.init(value: AuthCodeButtonType.normal)
@@ -97,9 +93,7 @@ public class AuthCodeViewModel {
             guard let phone = phoneStr else { return }
             self.currentPhoneStr = phone
             self.authAcountIsVaild.accept(phone.isMobile && self.authStr.count >= 5)
-            
             }.disposed(by: bag)
-        
         /// 输入验证码 -> 验证长度 -> 验证是否正确
         authCode.subscribe { [unowned self] (authEvent) in
             let authStr = authEvent.element ?? ""
@@ -107,14 +101,10 @@ public class AuthCodeViewModel {
             self.authStr = auth
             self.authAcountIsVaild.accept(self.currentPhoneStr.isMobile && self.authStr.count >= 5)
             }.disposed(by: bag)
-        
         authTap.subscribe { [unowned self] (event) in
             self.getAuthCode()
             }.disposed(by: bag)
-        
     }
-    
-    
     
 }
 
@@ -154,13 +144,11 @@ public extension AuthCodeViewModel {
                     self.vaildCode = nil
                     self.getAuthCodePhone = ""
                     self.authCodeStatus.accept(.failure)
-                    
                 }
             }) { (error) in
                 self.getAuthCodePhone = ""
                 self.authError.accept(.failure(error: "网络不给力"))
                 self.authCodeStatus.accept(.failure)
-                
             }.disposed(by: bag)
         
     }

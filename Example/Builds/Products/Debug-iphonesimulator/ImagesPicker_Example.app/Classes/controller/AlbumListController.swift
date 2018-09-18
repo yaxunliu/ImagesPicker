@@ -23,7 +23,7 @@ public struct AlbumItem {
         self.title = title
         self.fetchResult = fetchResult
     }
-
+    
 }
 
 public struct AlbumSection {
@@ -43,7 +43,7 @@ extension AlbumSection: SectionModelType {
         return albums
     }
     public var identity: String { return header }
-
+    
 }
 
 
@@ -102,14 +102,14 @@ public class AlbumListController: UIViewController {
     }
     
     
-
+    
 }
 extension AlbumListController {
     
     func observer() {
         self.navBar.rightButton.rx.controlEvent([.touchUpInside]).subscribe { [unowned self] _ in
             self.navigationController?.dismiss(animated: true, completion: nil)
-        }.disposed(by: bag)
+            }.disposed(by: bag)
     }
     
     func loadPhotoAlbums() {
@@ -125,13 +125,14 @@ extension AlbumListController {
             let userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil)
             let cusAblums = self.convertCollection(collection: userCollections as! PHFetchResult<PHAssetCollection>)
             //异步加载表格数据,需要在主线程中调用reloadData() 方法
-            DispatchQueue.main.async { [unowned self] in 
+            DispatchQueue.main.async { [unowned self] in
                 let items = sysAblums + cusAblums
                 self.albums.accept([AlbumSection.init(header: "ablum", albums: items)])
                 let imgPicker = ImagePickerController(selectImages: { [unowned self] (models) in
-                    self._selectImages(models)
-                    self.navigationController?.dismiss(animated: true, completion: nil)
-                }, maxNum: self._maxSelectNum)
+                    self.navigationController?.dismiss(animated: true, completion: {
+                        self._selectImages(models)
+                    })
+                    }, maxNum: self._maxSelectNum)
                 imgPicker.album = items[0]
                 if self.isPush {
                     self.navigationController?.pushViewController(imgPicker, animated: false)
@@ -151,14 +152,15 @@ extension AlbumListController {
             let album = self.albums.value[0].albums[index.row]
             
             let imgPicker = ImagePickerController(selectImages: { [unowned self] (models) in
-                self._selectImages(models)
-                self.navigationController?.dismiss(animated: true, completion: nil)
-            }, maxNum: self._maxSelectNum)
+                self.navigationController?.dismiss(animated: true, completion: {
+                    self._selectImages(models)
+                })
+                }, maxNum: self._maxSelectNum)
             imgPicker.album = album
             self.navigationController?.pushViewController(imgPicker , animated: true)
-
+            
             self.tableView?.deselectRow(at: index, animated: true)
-        }.disposed(by: bag)
+            }.disposed(by: bag)
         
         
         albums.asObservable()
@@ -187,3 +189,4 @@ extension AlbumListController {
         return items
     }
 }
+

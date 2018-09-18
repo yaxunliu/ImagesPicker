@@ -53,7 +53,7 @@ public class IconButton: UIButton {
         }
     }
     
-    func updateFrame(_ setText: String?, _ animation: Bool = false )  {
+    public func updateFrame(_ setText: String?, _ animation: Bool = false )  {
         self.setTitle(setText, for: .normal)
         let oldSize = self.bounds.size
         let size = sizeThatFits(self.bounds.size)
@@ -78,7 +78,7 @@ public class IconButton: UIButton {
         self.setTitleColor(UIColor.getColor(hex: "333333"), for: .normal)
     }
     
-    var space: CGFloat = 10.0
+    public var space: CGFloat = 10.0
     
     
     required public init?(coder aDecoder: NSCoder) {
@@ -198,4 +198,3 @@ public class IconMoreButton: UIButton {
     }
     
 }
-

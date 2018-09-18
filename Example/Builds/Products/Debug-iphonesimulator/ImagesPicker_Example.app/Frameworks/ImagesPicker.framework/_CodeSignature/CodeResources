@@ -22,7 +22,7 @@
 		</data>
 		<key>ImagesPicker.bundle/Info.plist</key>
 		<data>
-		8b1azi2k1fcvAImO5O5lpphAYIc=
+		x3GgJ4dXw2PqWNaAhEZA4CvcrqA=
 		</data>
 		<key>ImagesPicker.bundle/ic_back@2x.png</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		iPwxvGwfhWBWgYXwv+yhHm5S2jg=
+		WCUqElNrUUE1CQK2snyNt+4KjpU=
 		</data>
 		<key>PickImageCell.nib</key>
 		<data>
@@ -127,11 +127,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8b1azi2k1fcvAImO5O5lpphAYIc=
+			x3GgJ4dXw2PqWNaAhEZA4CvcrqA=
 			</data>
 			<key>hash2</key>
 			<data>
-			CsKs1DvI8qat7G4CgxvROBsSi7n40O93d46WpBY5IYg=
+			0OaKze47sKJ9Gktk4sZSMU41mLJusW6mq7kj2y/5u8k=
 			</data>
 		</dict>
 		<key>ImagesPicker.bundle/ic_back@2x.png</key>
@@ -269,7 +269,7 @@
 	</dict>
 	<key>rules</key>
 	<dict>
-		<key>^</key>
+		<key>^.*</key>
 		<true/>
 		<key>^.*\.lproj/</key>
 		<dict>
@@ -300,24 +300,12 @@
 			<key>weight</key>
 			<real>11</real>
 		</dict>
-		<key>^</key>
-		<dict>
-			<key>weight</key>
-			<real>20</real>
-		</dict>
 		<key>^(.*/)?\.DS_Store$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
 			<real>2000</real>
-		</dict>
-		<key>^(Frameworks|SharedFrameworks|PlugIns|Plug-ins|XPCServices|Helpers|MacOS|Library/(Automator|Spotlight|LoginItems))/</key>
-		<dict>
-			<key>nested</key>
-			<true/>
-			<key>weight</key>
-			<real>10</real>
 		</dict>
 		<key>^.*</key>
 		<true/>
@@ -353,13 +341,6 @@
 			<true/>
 			<key>weight</key>
 			<real>20</real>
-		</dict>
-		<key>^[^/]+$</key>
-		<dict>
-			<key>nested</key>
-			<true/>
-			<key>weight</key>
-			<real>10</real>
 		</dict>
 		<key>^embedded\.provisionprofile$</key>
 		<dict>

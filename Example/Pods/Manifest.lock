@@ -1,16 +1,19 @@
 PODS:
   - Alamofire (4.7.2)
-  - BaseLib (1.0.3):
+  - BaseLib (1.2.0):
     - KeychainSwift (~> 11.0)
     - Kingfisher (~> 4.6.3)
     - Moya/RxSwift (~> 11.0)
     - ObjectMapper (~> 3.3.0)
     - RxCocoa (~> 4.2.0)
     - RxSwift (~> 4.2.0)
-    - YYText
+    - SnapKit (~> 4.0.0)
+    - SVProgressHUD (~> 2.2.5)
+    - URLNavigator (~> 2.0.6)
+    - YYText (~> 1.0.7)
   - Differentiator (3.0.2)
-  - ImagesPicker (0.0.6):
-    - BaseLib (~> 1.0.3)
+  - ImagesPicker (0.0.8):
+    - BaseLib (~> 1.2.0)
     - RxDataSources (~> 3.0.2)
     - SnapKit (~> 4.0.0)
   - KeychainSwift (11.0.0)
@@ -31,10 +34,12 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.2.0)
   - SnapKit (4.0.0)
+  - SVProgressHUD (2.2.5)
+  - URLNavigator (2.0.6)
   - YYText (1.0.7)
 
 DEPENDENCIES:
-  - BaseLib (~> 1.0.3)
+  - BaseLib (~> 1.2.0)
   - ImagesPicker (from `../`)
   - RxDataSources (~> 3.0.2)
   - SnapKit (~> 4.0.0)
@@ -54,6 +59,8 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - SnapKit
+    - SVProgressHUD
+    - URLNavigator
     - YYText
 
 EXTERNAL SOURCES:
@@ -62,9 +69,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  BaseLib: 75b3aa99a11d1f8c69576f730c47e635a59b04e5
+  BaseLib: 823056164203663a40d35cf47a92238f8c746168
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
-  ImagesPicker: ad8d11d948e364e1bf49b7d302b39697f6502241
+  ImagesPicker: 9df7801241245ba0150c64105916d8447acc022c
   KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   Moya: a725035953bc1c0eb1be505ab903984501d82440
@@ -74,8 +81,10 @@ SPEC CHECKSUMS:
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  URLNavigator: 2357a32f3b3787b748bf87deb927761f8b0f7f53
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: d8444c95834fce5e98d17830fb85605230c5407a
+PODFILE CHECKSUM: 425d381fed5da20c1680fc48efc760a37c07e1bb
 
 COCOAPODS: 1.5.0
