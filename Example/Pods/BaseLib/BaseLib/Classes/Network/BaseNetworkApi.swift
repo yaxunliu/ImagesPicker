@@ -42,11 +42,11 @@ public enum BaseNetworkApi {
     
     /******************
      动态相关
-    *******************/
+     *******************/
     /// 点赞
-    case nice(dynamic_id: Int, token: String)
+    case nice(dynamic_id: String)
     /// 删除动态
-    case remove(token: String, dynamic_id: Int)
+    case remove(dynamic_id: Int)
     /*
      * start 开始位置
      * limit 请求数量
@@ -55,9 +55,9 @@ public enum BaseNetworkApi {
      */
     case allDynamic(start: Int?, limit: Int?, time_tran: Bool?, lastes: Bool?)
     /// 个人动态
-    case profileDynamic(token: String, start: Int?, limit: Int?, time_tran: Bool?, lt_gt: Bool?)
+    case profileDynamic(start: Int?, limit: Int?, time_tran: Bool?, lt_gt: Bool?)
     /// 发表
-    case publish(editContent: String, secret: Bool, token: String, client: String, images: [MultipartFormData])
+    case publish(editContent: String, secret: Bool, client: String, images: [MultipartFormData]?)
     /// 回复/评论 comment: true 评论 false: 回复
     case commen(feedId: String?, choose_id: String?, content: String, comment: Bool, isCommenFeed: Bool, commenUserId: String, commentId: String, commenRootId: String)
     /// 获取详情评论列表
@@ -72,6 +72,12 @@ public enum BaseNetworkApi {
     case shareDynamic(dynamicID: String)
     /// 转发动态
     case forwardDynamic(dynamicID: String, content: String?)
+    
+    
+    /******************
+     私信文件上传接口
+     *******************/
+    case uploadChatFile(fileName: String, fileExt: String, fileData: Data)
 }
 
 
@@ -79,9 +85,9 @@ extension BaseNetworkApi: TargetType {
     public var task: Task {
         switch self {
             
-        /******************
-         登录  注册  验证码 相关
-         *******************/
+            /******************
+             登录  注册  验证码 相关
+             *******************/
         case .login(let email_mobile, let psw, let vCode):
             var paramdict = ["email_mobile": email_mobile, "psw": psw]
             guard let code = vCode else { return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)}
@@ -102,9 +108,9 @@ extension BaseNetworkApi: TargetType {
             paramdict["utype"] = type
             return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
             
-        /******************
-         动态相关
-         *******************/
+            /******************
+             动态相关
+             *******************/
         case .allDynamic(let start, let limit, let time_tran, let lastes):
             var lt = "gt"
             if lastes != nil { lt = lastes! ? "gt" : "lt" }
@@ -116,7 +122,7 @@ extension BaseNetworkApi: TargetType {
             if time_tran != nil { trans = time_tran! }
             let paramdict = ["start": st, "limit": count, "time_tran": trans, "lt_gt": lt] as [String : Any]
             return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
-        case .profileDynamic(let token, let start, let limit, let time_tran, let lt_gt):
+        case .profileDynamic(let start, let limit, let time_tran, let lt_gt):
             var lt = "gt"
             if lt_gt != nil { lt = lt_gt! ? "gt" : "lt" }
             var st = 0
@@ -125,22 +131,26 @@ extension BaseNetworkApi: TargetType {
             if limit != nil { count = limit! }
             var trans = true
             if time_tran != nil { trans = time_tran! }
-            let paramdict = ["start": st, "limit": count, "time_tran": trans, "lt_gt": lt, "token": token] as [String : Any]
+            let paramdict = ["start": st, "limit": count, "time_tran": trans, "lt_gt": lt] as [String : Any]
             return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
-        case .publish(let editContent, let secret, let token, let client, let images):
-            let paramdict = ["myclient": client, "token": token, "feed": editContent, "secret": secret] as [String : Any]
-                return .uploadCompositeMultipart(images, urlParameters: paramdict)
-        case .nice(let dynamic_id, let token):
-            let paramdict = ["token": token, "feed_id": dynamic_id] as [String : Any]
+        case .publish(let editContent, let secret,let client, let images):
+            let paramdict = ["myclient": client, "feed": editContent, "secret": secret] as [String : Any]
+            
+            if images != nil {
+                return .uploadCompositeMultipart(images!, urlParameters: paramdict)
+            }
             return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
-        case .remove(let token, let dynamic_id):
-            let paramdict = ["token": token, "feed_id": dynamic_id] as [String : Any]
+        case .nice(let dynamic_id):
+            let paramdict = ["feed_id": dynamic_id] as [String : Any]
+            return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
+        case .remove(let dynamic_id):
+            let paramdict = ["feed_id": dynamic_id] as [String : Any]
             return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
             
         case .commen(let feedId, let choose_id, let content, let comment, let commenUserId, let commentId, let isCommenFeed, let commenRootId):
             let paramdict = ["feed_id": feedId ?? "", "choose_id": choose_id ?? "", "content": content, "is_comment": comment, "to_user_id": commenUserId, "comment_id": commentId, "root_id": commenRootId, "is_to_feed": isCommenFeed] as [String : Any]
             return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
-        
+            
         case .commenList(let dynamicId, let lastDynamicId, let commenNum, let replyNum):
             let paramdict = ["feed_id": dynamicId , "max_id": lastDynamicId ?? 0, "comment_size": commenNum ?? 0, "reply_size": replyNum ?? 0] as [String : Any]
             return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
@@ -161,7 +171,14 @@ extension BaseNetworkApi: TargetType {
         case .forwardDynamic(let dynamicID, let content):
             let paramdict = ["feed_id": dynamicID, "content": content ?? ""] as [String : Any]
             return .requestParameters(parameters: paramdict, encoding: URLEncoding.default)
-         }
+            
+            /******************
+             私信文件上传接口
+             *******************/
+        case .uploadChatFile(let fileName, let fileExt, let fileData):
+            let paramDict = ["file_name": fileName, "file_ext": fileExt]
+            return .uploadCompositeMultipart([MultipartFormData.init(provider: .data(fileData), name: fileName)], urlParameters: paramDict)
+        }
     }
     public var baseURL: URL {
         guard let url = BaseNetworkConfig.config().baseUrl else {
@@ -172,9 +189,9 @@ extension BaseNetworkApi: TargetType {
     
     public var path: String {
         switch self {
-        /******************
-         登录  注册  验证码 相关
-         *******************/
+            /******************
+             登录  注册  验证码 相关
+             *******************/
         case .login:
             return "/pubapi1/login"
         case .getAuthCode:
@@ -186,9 +203,9 @@ extension BaseNetworkApi: TargetType {
         case .regist:
             return "/pubapi1/regist"
             
-        /******************
-         动态相关
-         *******************/
+            /******************
+             动态相关
+             *******************/
         case .nice:
             return "/priapi1/like_feed"
         case .niceCommen:
@@ -213,8 +230,13 @@ extension BaseNetworkApi: TargetType {
             return "/priapi1/del_feed"
         case .forwardDynamic:
             return "/priapi1/forward_feed"
-        
-
+            
+            /******************
+             私信文件上传接口
+             *******************/
+        case .uploadChatFile:
+            return "/priapi1/im_upload_file"
+            
         }
     }
     
@@ -234,5 +256,7 @@ extension BaseNetworkApi: TargetType {
     }
     
 }
+
+
 
 

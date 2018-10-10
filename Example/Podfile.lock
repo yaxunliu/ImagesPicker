@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (4.7.2)
-  - BaseLib (1.2.0):
+  - Alamofire (4.7.3)
+  - BaseLib (1.3.0):
     - KeychainSwift (~> 11.0)
     - Kingfisher (~> 4.6.3)
     - Moya/RxSwift (~> 11.0)
@@ -12,8 +12,8 @@ PODS:
     - URLNavigator (~> 2.0.6)
     - YYText (~> 1.0.7)
   - Differentiator (3.0.2)
-  - ImagesPicker (0.0.8):
-    - BaseLib (~> 1.2.0)
+  - ImagesPicker (1.0.1):
+    - BaseLib (~> 1.3.0)
     - RxDataSources (~> 3.0.2)
     - SnapKit (~> 4.0.0)
   - KeychainSwift (11.0.0)
@@ -39,7 +39,7 @@ PODS:
   - YYText (1.0.7)
 
 DEPENDENCIES:
-  - BaseLib (~> 1.2.0)
+  - BaseLib (~> 1.3.0)
   - ImagesPicker (from `../`)
   - RxDataSources (~> 3.0.2)
   - SnapKit (~> 4.0.0)
@@ -47,7 +47,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://gitee.com/weicaixun/hxgSpecRepo.git:
     - BaseLib
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - Differentiator
     - KeychainSwift
@@ -68,10 +68,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  BaseLib: 823056164203663a40d35cf47a92238f8c746168
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  BaseLib: 5fe85751b54ce80f6811ffb55a954e675552ac81
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
-  ImagesPicker: 9df7801241245ba0150c64105916d8447acc022c
+  ImagesPicker: 0f4893f313476366ce586575af6821157b7dad10
   KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   Moya: a725035953bc1c0eb1be505ab903984501d82440
@@ -85,6 +85,6 @@ SPEC CHECKSUMS:
   URLNavigator: 2357a32f3b3787b748bf87deb927761f8b0f7f53
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 425d381fed5da20c1680fc48efc760a37c07e1bb
+PODFILE CHECKSUM: 4ed054d941f4969c8d208e1a09e95e2ec102201c
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
